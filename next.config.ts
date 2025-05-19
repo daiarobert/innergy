@@ -1,7 +1,11 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  images: {
+    domains: [
+      "lh3.googleusercontent.com", // already for Google profile
+      "cdn.thewirecutter.com", // ✅ allow this new one
+    ],
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
