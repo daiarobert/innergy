@@ -78,7 +78,7 @@ export default function ProductTable({ products }: { products: any[] }) {
                       View
                     </Link>
                     <Link
-                      href={`/dashboard/produse/${product._id}`}
+                      href={`/dashboard/produse/edit/${product._id}`}
                       className="btn btn-xs btn-outline"
                     >
                       Edit

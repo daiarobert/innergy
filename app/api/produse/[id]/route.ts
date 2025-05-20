@@ -18,3 +18,25 @@ export async function GET(_: Request, { params }: { params: { id: string } }) {
 
   return NextResponse.json(product);
 }
+
+export async function PUT(
+  req: Request,
+  { params }: { params: { id: string } }
+) {
+  await connectToDB();
+  const data = await req.json();
+
+  const updated = await Product.findByIdAndUpdate(params.id, data, {
+    new: true,
+  });
+
+  return NextResponse.json(updated);
+}
+export async function DELETE(
+  _: Request,
+  { params }: { params: { id: string } }
+) {
+  await connectToDB();
+  const deleted = await Product.findByIdAndDelete(params.id);
+  return NextResponse.json(deleted);
+}
