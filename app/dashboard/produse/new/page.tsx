@@ -40,9 +40,9 @@ export default function NewProductPage() {
   };
 
   return (
-    <Card className="max-w-xl mx-auto">
+    <Card className="max-w-xl mx-auto bg-white">
       <CardHeader>
-        <CardTitle>Create New Product</CardTitle>
+        <CardTitle className="text-center">Create New Product</CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -89,7 +89,7 @@ export default function NewProductPage() {
           <Button
             type="submit"
             disabled={isSubmitting}
-            className="btn btn-primary"
+            className="btn btn-primary w-full bg-[#387780] text-white hover:bg-[#387780bd] rounded-full p-3"
           >
             {isSubmitting ? "Saving..." : "Create"}
           </Button>

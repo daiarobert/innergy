@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -13,16 +13,30 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-export default function ProductTable({ products }: { products: any[] }) {
+export default function DashboardTable({
+  title,
+  data,
+  createLink,
+  viewPrefix,
+  editPrefix,
+  type,
+}: {
+  title: string;
+  data: any[];
+  createLink: string;
+  viewPrefix: string;
+  editPrefix: string;
+  type: "product" | "article";
+}) {
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 5;
 
   const filtered = useMemo(() => {
-    return products.filter((p) =>
-      p.title.toLowerCase().includes(search.toLowerCase())
+    return data.filter((item) =>
+      item.title?.toLowerCase().includes(search.toLowerCase())
     );
-  }, [search, products]);
+  }, [search, data]);
 
   const totalPages = Math.ceil(filtered.length / itemsPerPage);
   const paginated = filtered.slice(
@@ -31,24 +45,24 @@ export default function ProductTable({ products }: { products: any[] }) {
   );
 
   const handleDelete = async (id: string) => {
-    await fetch(`/api/produse/${id}`, { method: "DELETE" });
+    await fetch(`/api/articole/${id}`, { method: "DELETE" });
     location.reload();
   };
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Produse</h1>
+        <h1 className="text-3xl font-bold">{title}</h1>
         <Link
-          href="/dashboard/produse/new"
-          className="btn btn btn-accent text-white bg-[#387780] rounded-full p-3 hover:bg-[#387780bd]"
+          href={createLink}
+          className="btn btn-accent text-white bg-[#387780] rounded-full p-3 hover:bg-[#387780bd]"
         >
-          + Add Product
+          + Add {title.slice(0, -1)}
         </Link>
       </div>
 
       <Input
-        type="text" // Explicitly set the type
+        type="text"
         placeholder="Search by title..."
         value={search}
         onChange={(e) => {
@@ -58,35 +72,41 @@ export default function ProductTable({ products }: { products: any[] }) {
         className="w-full md:w-1/2 bg-white"
       />
 
-      <div className="overflow-x-auto rounded-lg shadow">
-        <Table className="bg-white">
+      <div className="overflow-x-auto rounded-lg shadow bg-white">
+        <Table>
           <TableHeader>
             <TableRow>
               <TableHead>Title</TableHead>
-              <TableHead>Price (£)</TableHead>
+              {type === "article" && <TableHead>Author</TableHead>}
+              {type === "article" && <TableHead>Published</TableHead>}
+              {type === "product" && <TableHead>Price</TableHead>}
               <TableHead className="text-center">Actions</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {paginated.map((product) => (
-              <TableRow key={product._id || product.title}>
-                <TableCell>{product.title}</TableCell>
-                <TableCell>£{product.price}</TableCell>
+            {paginated.map((item) => (
+              <TableRow key={item._id}>
+                <TableCell>{item.title}</TableCell>
+                {type === "article" && <TableCell>{item.author}</TableCell>}
+                {type === "article" && (
+                  <TableCell>{item.published ? "✅" : "❌"}</TableCell>
+                )}
+                {type === "product" && <TableCell>£{item.price}</TableCell>}
                 <TableCell>
                   <div className="flex gap-2 justify-center">
-                    <Link href={`/dashboard/produse/${product._id}`}>
-                      <div className="btn btn-sm btn-outline  bg-[#387780] rounded-lg p-2 text-white hover:bg-[#387780bd]">
+                    <Link href={`/${viewPrefix}/${item._id}`}>
+                      <div className="btn btn-sm bg-[#387780] text-white rounded-lg p-2 hover:bg-[#387780bd]">
                         View
                       </div>
                     </Link>
-                    <Link href={`/dashboard/produse/edit/${product._id}`}>
-                      <div className="btn btn-sm btn-outline bg-[#D2CCA1] rounded-lg p-2 text-white hover:bg-[#d2cca1bd]">
+                    <Link href={`/dashboard/${editPrefix}/${item._id}`}>
+                      <div className="btn btn-sm bg-[#D2CCA1] text-white rounded-lg p-2 hover:bg-[#d2cca1bd]">
                         Edit
                       </div>
                     </Link>
                     <div
                       className="btn btn-outline btn-danger btn-sm bg-[#E83151] rounded-lg p-2 text-white hover:bg-[#e83151bd] cursor-pointer"
-                      onClick={() => handleDelete(product._id)}
+                      onClick={() => handleDelete(item._id)}
                     >
                       Delete
                     </div>
@@ -98,7 +118,6 @@ export default function ProductTable({ products }: { products: any[] }) {
         </Table>
       </div>
 
-      {/* Pagination Controls */}
       <div className="flex justify-center gap-2 pt-4">
         <Button
           size="sm"

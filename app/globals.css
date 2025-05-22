@@ -1,9 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "froala-editor/css/froala_editor.pkgd.min.css";
+@import "froala-editor/css/froala_style.min.css";
+@import "froala-editor/css/themes/gray.min.css";
+@import "froala-editor/css/plugins/image.min.css";
+@import "font-awesome/css/font-awesome.css";
+
 /* @plugin "daisyui" {
   themes: false;
 }
+
+
 
 /* DaisyUI + ShadCN theme support */
 body {
@@ -14,6 +22,13 @@ body {
   --primary: 222.2 47.4% 11.2%;
   --primary-foreground: 210 40% 98%; */
   /* ...rest of the vars... */
+}
+
+main {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
 }
 
 .icons {

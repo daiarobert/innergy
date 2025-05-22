@@ -58,7 +58,16 @@ export default function EditProductPage() {
     router.push("/dashboard/produse");
   };
 
-  if (loading) return <p className="p-4">Loading...</p>;
+  if (loading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <img
+          src="/floare.svg"
+          alt="Loading..."
+          className="w-20 h-20 animate-spin"
+        />
+      </div>
+    );
 
   return (
     <div className="max-w-xl mx-auto p-6 space-y-4 bg-base-100 shadow rounded bg-white">

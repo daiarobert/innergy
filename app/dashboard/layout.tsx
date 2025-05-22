@@ -16,15 +16,19 @@ export default async function DashboardLayout({
   }
 
   return (
-    <div className="flex min-h-screen bg-base-100">
+    <div
+      className="flex min-h-screen bg-base-100"
+      style={{ overflow: "scroll" }}
+    >
       <Sidebar session={session} />
       <main
-        className="dashboard-main flex-1 p-6 relative" // Add "relative" here
+        className="dashboard-main flex-1 pl-6 pr-6 pt-6 relative" // Add "relative" here
         style={{
           backgroundImage: "url('/spirala.svg')",
           backgroundPosition: "bottom right",
           backgroundRepeat: "no-repeat",
           animationTimingFunction: "ease-in",
+          overflow: "scroll",
         }}
       >
         {children}

@@ -28,7 +28,17 @@ export default function EditProductPage() {
     if (params.id) fetchProduct();
   }, [params.id]);
 
-  if (loading) return <p className="p-4">Loading...</p>;
+  if (loading)
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <img
+          src="/floare.svg"
+          alt="Loading..."
+          className="w-20 h-20 animate-spin"
+        />
+      </div>
+    );
+
   if (!product?._id) return <p className="p-4 text-error">Product not found</p>;
 
   return (
