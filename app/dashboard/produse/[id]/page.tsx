@@ -3,6 +3,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function EditProductPage() {
   const params = useParams();
@@ -30,8 +32,8 @@ export default function EditProductPage() {
   if (!product?._id) return <p className="p-4 text-error">Product not found</p>;
 
   return (
-    <div className="max-w-xl mx-auto p-6 space-y-4 bg-base-100 shadow rounded">
-      <h1 className="text-2xl font-bold">Edit Product</h1>
+    <div className="max-w-xl mx-auto p-6 space-y-4 bg-base-100 shadow rounded bg-white">
+      <h1 className="text-2xl font-bold text-center">View Product</h1>
 
       <div>
         <label className="label">Title</label>
@@ -58,6 +60,14 @@ export default function EditProductPage() {
           className="rounded shadow"
         />
       </div>
+      <Link key="/dashboard/produse" href="/dashboard/produse">
+        <Button
+          type="submit"
+          className="btn btn-primary w-full bg-[#387780] text-white hover:bg-[#387780bd] rounded-full p-3 mt-4"
+        >
+          Go Back
+        </Button>
+      </Link>
     </div>
   );
 }

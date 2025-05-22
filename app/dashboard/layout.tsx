@@ -1,4 +1,3 @@
-// app/dashboard/layout.tsx
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { redirect } from "next/navigation";
@@ -19,7 +18,17 @@ export default async function DashboardLayout({
   return (
     <div className="flex min-h-screen bg-base-100">
       <Sidebar session={session} />
-      <main className="flex-1 p-6">{children}</main>
+      <main
+        className="dashboard-main flex-1 p-6 relative" // Add "relative" here
+        style={{
+          backgroundImage: "url('/spirala.svg')",
+          backgroundPosition: "bottom right",
+          backgroundRepeat: "no-repeat",
+          animationTimingFunction: "ease-in",
+        }}
+      >
+        {children}
+      </main>
     </div>
   );
 }
