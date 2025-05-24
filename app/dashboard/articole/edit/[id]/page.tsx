@@ -1,23 +1,18 @@
 "use client";
 
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { useParams, useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import dynamic from "next/dynamic";
-import { z } from "zod";
-import "froala-editor/js/plugins.pkgd.min.js";
-import "froala-editor/css/froala_editor.pkgd.min.css";
-import "froala-editor/css/froala_style.min.css";
-import "froala-editor/css/themes/gray.min.css";
-// import "froala-editor/css/plugins/image.min.css";
-import "font-awesome/css/font-awesome.css";
 import React from "react";
 
+// Load Froala dynamically
 const FroalaEditor = dynamic(() => import("react-froala-wysiwyg"), {
   ssr: false,
 });
@@ -29,12 +24,9 @@ const schema = z.object({
   image: z.string().url(),
 });
 
-export default function EditArticlePage({
-  params: asyncParams,
-}: {
-  params: Promise<{ id: string }>;
-}) {
+export default function EditArticlePage() {
   const router = useRouter();
+  const params = useParams();
   const [content, setContent] = useState("");
   const [defaultValues, setDefaultValues] = useState<any>(null);
 
@@ -47,18 +39,20 @@ export default function EditArticlePage({
     resolver: zodResolver(schema),
   });
 
-  // Unwrap `params` using React.use()
-  const [params, setParams] = useState<{ id: string } | null>(null);
-
   useEffect(() => {
-    asyncParams.then(setParams);
-  }, [asyncParams]);
+    // 🧠 Lazy load Froala CSS only in browser
+    if (typeof window !== "undefined") {
+      import("froala-editor/js/plugins.pkgd.min.js");
+      import("froala-editor/css/froala_editor.pkgd.min.css");
+      import("froala-editor/css/froala_style.min.css");
+      import("froala-editor/css/themes/gray.min.css");
+      // import("font-awesome/css/font-awesome.css");
+    }
+  }, []);
 
   useEffect(() => {
     const fetchArticle = async () => {
-      if (!params) throw new Error("Params not available");
-      const { id } = params; // Unwrap `params` here
-      const res = await fetch(`/api/articole/${id}`);
+      const res = await fetch(`/api/articole/${params.id}`);
       const data = await res.json();
       setDefaultValues(data);
       reset({
@@ -69,23 +63,16 @@ export default function EditArticlePage({
       });
       setContent(data.content);
     };
-    fetchArticle();
-  }, [params, reset]);
+    if (params.id) fetchArticle();
+  }, [params.id, reset]);
 
   const onSubmit = async (data: any) => {
-    if (!params) throw new Error("Params not available");
-    const { id } = params; // Unwrap `params` here
-    const payload = {
-      ...data,
-      content,
-    };
-
-    const res = await fetch(`/api/articole/${id}`, {
+    const payload = { ...data, content };
+    const res = await fetch(`/api/articole/${params.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
     });
-
     if (res.ok) {
       router.push("/dashboard/articole");
     }
@@ -105,7 +92,7 @@ export default function EditArticlePage({
   return (
     <Card className="max-w-xl mx-auto bg-white">
       <CardHeader>
-        <CardTitle>Edit Article</CardTitle>
+        <CardTitle>Editează articol</CardTitle>
       </CardHeader>
       <CardContent>
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -154,7 +141,7 @@ export default function EditArticlePage({
             <div className="bg-white border rounded">
               <FroalaEditor
                 model={content}
-                onModelChange={(val: string) => setContent(val)}
+                onModelChange={setContent}
                 tag="textarea"
                 config={{
                   theme: "gray",
@@ -164,7 +151,7 @@ export default function EditArticlePage({
                   imageAllowedTypes: ["jpeg", "jpg", "png", "gif", "webp"],
                   imageDefaultWidth: 0,
                   heightMin: 250,
-                  placeholderText: "Write your article content here...",
+                  placeholderText: "Scrie conținutul articolului...",
                 }}
               />
             </div>
@@ -174,7 +161,7 @@ export default function EditArticlePage({
             type="submit"
             className="btn btn-primary w-full bg-[#387780] text-white hover:bg-[#387780bd] rounded-full p-3 mt-4"
           >
-            Save Changes
+            Salvează modificările
           </Button>
         </form>
       </CardContent>
