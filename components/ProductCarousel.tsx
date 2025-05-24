@@ -3,8 +3,9 @@
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { Anton } from "next/font/google";
+import { Anton, Playfair_Display } from "next/font/google";
 const anton = Anton({ subsets: ["latin"], weight: "400" });
+const playfair = Playfair_Display({ subsets: ["latin"], weight: "600" });
 
 const products = [
   {
@@ -50,7 +51,7 @@ export default function ProductCarousel() {
         <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-4">
           <div>
             <span
-              className={`inline-block bg-[#3B62ACFF] text-white text-sm font-bold px-3 py-1 rounded-full tracking-wide mb-2 ${anton.className}`}
+              className={`inline-block bg-[#3B62ACFF] text-white text-sm font-bold px-3 py-1 rounded-full tracking-wide mb-2 ${playfair.className}`}
             >
               Probiotice & Prebiotice
             </span>

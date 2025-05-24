@@ -1,5 +1,10 @@
 "use client";
 
+import { Playfair_Display, Inter } from "next/font/google";
+
+const playfair = Playfair_Display({ subsets: ["latin"], weight: "600" });
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500"] });
+
 export default function Hero() {
   return (
     <section className="relative h-[70vh] w-full  bg-black">
@@ -31,11 +36,13 @@ export default function Hero() {
 
       {/* Hero Content */}
       <div className="relative z-30 flex flex-col items-center justify-center h-full text-center text-white px-4">
-        <h1 className="text-4xl md:text-6xl font-bold uppercase tracking-wide">
-          Relax. Refresh. Repeat.
+        <h1
+          className={`text-4xl md:text-6xl font-bold uppercase tracking-wide ${playfair.className}`}
+        >
+          Echilibrul începe din interior
         </h1>
-        <p className="mt-4 text-lg md:text-xl max-w-2xl">
-          Discover the ultimate way to unwind with our wellness experience.
+        <p className={`"mt-4 text-lg md:text-xl max-w-2xl" ${inter.className}`}>
+          Mai multă energie. Mai multă stare de bine.
         </p>
 
         <svg

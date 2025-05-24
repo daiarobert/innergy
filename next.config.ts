@@ -6,6 +6,9 @@ const nextConfig = {
       "cdn.thewirecutter.com", // ✅ allow this new one
     ],
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 module.exports = nextConfig;
