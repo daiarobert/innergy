@@ -11,17 +11,14 @@ interface IArticle {
   updatedAt?: Date;
 }
 
-type RouteContext = {
-  params: {
-    id: string;
-  };
-};
-
-export async function GET(req: NextRequest, context: RouteContext) {
-  const { id } = context.params;
+// GET one article
+export async function GET(req: NextRequest) {
   await connectToDB();
 
-  if (!mongoose.Types.ObjectId.isValid(id)) {
+  const url = new URL(req.url);
+  const id = url.pathname.split("/").pop();
+
+  if (!id || !mongoose.Types.ObjectId.isValid(id)) {
     return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
   }
 
@@ -37,10 +34,15 @@ export async function GET(req: NextRequest, context: RouteContext) {
   });
 }
 
-export async function PUT(req: NextRequest, context: RouteContext) {
-  const { id } = context.params;
+// PUT
+export async function PUT(req: NextRequest) {
   await connectToDB();
+
+  const url = new URL(req.url);
+  const id = url.pathname.split("/").pop();
   const body = await req.json();
+
+  if (!id) return NextResponse.json({ error: "Missing ID" }, { status: 400 });
 
   const updated = await Article.findByIdAndUpdate(id, body, { new: true });
   if (!updated)
@@ -52,9 +54,17 @@ export async function PUT(req: NextRequest, context: RouteContext) {
   });
 }
 
-export async function DELETE(req: NextRequest, context: RouteContext) {
-  const { id } = context.params;
+// DELETE
+export async function DELETE(req: NextRequest) {
   await connectToDB();
+
+  const url = new URL(req.url);
+  const id = url.pathname.split("/").pop();
+
+  if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+    return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
+  }
+
   const deleted = await Article.findByIdAndDelete(id);
   if (!deleted)
     return NextResponse.json({ error: "Not found" }, { status: 404 });
