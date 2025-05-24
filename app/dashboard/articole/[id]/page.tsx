@@ -4,11 +4,13 @@ import { Article } from "@/models/Article";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-export default async function ArticleViewPage({
-  params,
-}: {
-  params: { id: string };
-}) {
+type Props = {
+  params: {
+    id: string;
+  };
+};
+
+export default async function ArticleViewPage({ params }: Props) {
   await connectToDB();
 
   const article = (await Article.findById(params.id).lean()) as {
@@ -49,6 +51,7 @@ export default async function ArticleViewPage({
           dangerouslySetInnerHTML={{ __html: article.content }}
         />
       </div>
+
       <Link key="/dashboard/articole" href="/dashboard/articole">
         <Button
           type="submit"
