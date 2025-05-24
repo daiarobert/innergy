@@ -19,8 +19,8 @@ const FroalaEditor = dynamic(
     await import("froala-editor/css/froala_editor.pkgd.min.css");
     await import("froala-editor/css/froala_style.min.css");
     await import("froala-editor/css/themes/gray.min.css");
-    await import("froala-editor/css/plugins/image.min.css");
-    await import("font-awesome/css/font-awesome.css");
+    // await import("froala-editor/css/plugins/image.min.css");
+    // await import("font-awesome/css/font-awesome.css");
     return FroalaEditor;
   },
   { ssr: false }
