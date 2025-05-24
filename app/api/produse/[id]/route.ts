@@ -1,16 +1,20 @@
 import { connectToDB } from "@/lib/mongo";
 import { Product } from "@/models/Product";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import mongoose from "mongoose";
 
-export async function GET(_: Request, { params }: { params: { id: string } }) {
+// GET one product
+export async function GET(req: NextRequest) {
   await connectToDB();
 
-  if (!mongoose.Types.ObjectId.isValid(params.id)) {
+  const url = new URL(req.url);
+  const id = url.pathname.split("/").pop();
+
+  if (!id || !mongoose.Types.ObjectId.isValid(id)) {
     return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
   }
 
-  const product = await Product.findById(params.id).lean();
+  const product = await Product.findById(id).lean();
 
   if (!product) {
     return NextResponse.json({ error: "Not found" }, { status: 404 });
@@ -19,24 +23,45 @@ export async function GET(_: Request, { params }: { params: { id: string } }) {
   return NextResponse.json(product);
 }
 
-export async function PUT(
-  req: Request,
-  { params }: { params: { id: string } }
-) {
+// PUT update product
+export async function PUT(req: NextRequest) {
   await connectToDB();
+
+  const url = new URL(req.url);
+  const id = url.pathname.split("/").pop();
   const data = await req.json();
 
-  const updated = await Product.findByIdAndUpdate(params.id, data, {
+  if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+    return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
+  }
+
+  const updated = await Product.findByIdAndUpdate(id, data, {
     new: true,
   });
 
+  if (!updated) {
+    return NextResponse.json({ error: "Update failed" }, { status: 404 });
+  }
+
   return NextResponse.json(updated);
 }
-export async function DELETE(
-  _: Request,
-  { params }: { params: { id: string } }
-) {
+
+// DELETE product
+export async function DELETE(req: NextRequest) {
   await connectToDB();
-  const deleted = await Product.findByIdAndDelete(params.id);
+
+  const url = new URL(req.url);
+  const id = url.pathname.split("/").pop();
+
+  if (!id || !mongoose.Types.ObjectId.isValid(id)) {
+    return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
+  }
+
+  const deleted = await Product.findByIdAndDelete(id);
+
+  if (!deleted) {
+    return NextResponse.json({ error: "Not found" }, { status: 404 });
+  }
+
   return NextResponse.json(deleted);
 }
