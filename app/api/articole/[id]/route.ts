@@ -1,6 +1,6 @@
 import { connectToDB } from "@/lib/mongo";
 import { Article } from "@/models/Article";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import mongoose from "mongoose";
 
 interface IArticle {
@@ -12,11 +12,16 @@ interface IArticle {
 }
 
 // GET one article
-export async function GET(_: Request, { params }: { params: { id: string } }) {
+export async function GET(
+  req: NextRequest,
+  { params }: { params: { id: string } }
+) {
   await connectToDB();
+
   if (!mongoose.Types.ObjectId.isValid(params.id)) {
     return NextResponse.json({ error: "Invalid ID" }, { status: 400 });
   }
+
   const article = (await Article.findById(params.id).lean()) as IArticle | null;
   if (!article)
     return NextResponse.json({ error: "Not found" }, { status: 404 });
@@ -31,7 +36,7 @@ export async function GET(_: Request, { params }: { params: { id: string } }) {
 
 // PUT update article
 export async function PUT(
-  req: Request,
+  req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   await connectToDB();
@@ -52,7 +57,7 @@ export async function PUT(
 
 // DELETE article
 export async function DELETE(
-  _: Request,
+  req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   await connectToDB();
