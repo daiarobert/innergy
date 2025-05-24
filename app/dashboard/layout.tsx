@@ -18,7 +18,7 @@ export default async function DashboardLayout({
   return (
     <div
       className="flex min-h-screen bg-base-100"
-      style={{ overflow: "scroll" }}
+      // style={{ overflow: "scroll" }}
     >
       <Sidebar session={session} />
       <main
@@ -28,7 +28,8 @@ export default async function DashboardLayout({
           backgroundPosition: "bottom right",
           backgroundRepeat: "no-repeat",
           animationTimingFunction: "ease-in",
-          overflow: "scroll",
+          backgroundColor: "rgba(239, 239, 239, 0.673)",
+          // overflow: "scroll",
         }}
       >
         {children}

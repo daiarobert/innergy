@@ -1,28 +1,22 @@
-// app/page.tsx or any component using useSession
-"use client";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import VideoSwiper from "@/components/VideoSwiper";
+import IntroSection from "@/components/IntroSection";
+import ProductCarousel from "@/components/ProductCarousel";
 
-import { signIn, signOut, useSession } from "next-auth/react";
-
-export default function Home() {
-  const { data: session } = useSession();
-
+export default function HomePage() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen gap-4">
-      {session ? (
-        <>
-          <h1 className="text-2xl">Welcome, {session.user?.name}</h1>
-          <div className="bg-black text-white p-10 text-2xl font-bold rounded-lg shadow-lg">
-            ✅ If you see this styled: Tailwind works.
-          </div>
-          <button className="btn btn-secondary" onClick={() => signOut()}>
-            Sign Out
-          </button>
-        </>
-      ) : (
-        <button className="btn btn-primary" onClick={() => signIn("google")}>
-          Sign in with Google
-        </button>
-      )}
-    </main>
+    <>
+      <Navbar />
+      <Hero />
+      <ProductCarousel />
+      <IntroSection />
+      {/* Add your main content here */}
+      <VideoSwiper />
+      <h1 className="text-4xl font-bold">Welcome to the Website</h1>
+      <p className="text-lg text-gray-600">
+        This is the main website homepage. Start building your content here.
+      </p>
+    </>
   );
 }
