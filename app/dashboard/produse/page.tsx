@@ -8,25 +8,33 @@ export default function ProdusePage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/produse")
-      .then((res) => res.json())
-      .then((data) => setProducts(data))
-      .catch((err) => {
-        console.error("❌ Eroare la fetch produse:", err);
-      })
-      .finally(() => setLoading(false));
+    async function fetchProducts() {
+      try {
+        const res = await fetch("/api/produse");
+        if (!res.ok) throw new Error("Server response not OK");
+        const data = await res.json();
+
+        if (Array.isArray(data)) {
+          setProducts(data);
+        } else if (Array.isArray(data.data)) {
+          // in caz ca ai impachetat în { data: [...] }
+          setProducts(data.data);
+        } else {
+          console.error("Unexpected data format", data);
+          setProducts([]);
+        }
+      } catch (err) {
+        console.error("Error fetching products:", err);
+        setProducts([]);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchProducts();
   }, []);
 
-  if (loading)
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <img
-          src="/floare.svg"
-          alt="Loading..."
-          className="w-20 h-20 animate-spin"
-        />
-      </div>
-    );
+  if (loading) return <p className="p-4">Loading products...</p>;
 
   return <ProductTable products={products} />;
 }

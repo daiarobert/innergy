@@ -19,8 +19,9 @@ export default function ProductTable({ products }: { products: any[] }) {
   const itemsPerPage = 5;
 
   const filtered = useMemo(() => {
+    if (!Array.isArray(products)) return [];
     return products.filter((p) =>
-      p.title.toLowerCase().includes(search.toLowerCase())
+      p.title?.toLowerCase().includes(search.toLowerCase())
     );
   }, [search, products]);
 
