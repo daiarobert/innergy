@@ -1,15 +1,15 @@
 "use client";
 
-import { Playfair_Display, Inter } from "next/font/google";
+import { Funnel_Sans, Anton } from "next/font/google";
 import Image from "next/image";
 import { motion } from "framer-motion";
 
-const playfair = Playfair_Display({ subsets: ["latin"], weight: "600" });
-const inter = Inter({ subsets: ["latin"], weight: ["400", "500"] });
+const anton = Anton({ subsets: ["latin"], weight: "400" });
+const funnel = Funnel_Sans({ subsets: ["latin"], weight: "400" });
 
 export default function Hero() {
   return (
-    <section className="relative h-[55vh] sm:h-[70vh] w-full  bg-black">
+    <section className="relative h-[65vh] sm:h-[70vh] w-full  bg-black">
       {/* Background video */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
@@ -39,11 +39,13 @@ export default function Hero() {
       {/* Hero Content */}
       <div className="relative z-30 flex flex-col items-center justify-center h-full text-center text-white px-4">
         <h1
-          className={`text-4xl mt-20 md:text-6xl font-bold uppercase tracking-wide ${playfair.className}`}
+          className={`text-4xl mt-20 md:text-6xl font-bold uppercase tracking-wide ${anton.className}`}
         >
           Echilibrul începe din interior
         </h1>
-        <p className={`"mt-4 text-lg md:text-xl max-w-2xl" ${inter.className}`}>
+        <p
+          className={`"mt-4 text-lg md:text-xl max-w-2xl" ${funnel.className}`}
+        >
           Mai multă energie. Mai multă stare de bine.
         </p>
         <motion.div

@@ -3,6 +3,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import { Anton, Inter } from "next/font/google";
+
+const anton = Anton({ subsets: ["latin"], weight: "400" });
+const inter = Inter({ subsets: ["latin"], weight: "600" });
 
 const videos = [
   {
@@ -48,10 +52,13 @@ export default function VideoCarousel() {
     <div className="bg-[rgba(239, 239, 239, 0.673)] text-black flex flex-col md:flex-row items-center justify-center gap-12 px-6 py-16 overflow-hidden">
       {/* LEFT TEXT & CONTROLS */}
       <div className="flex-1 max-w-md text-center md:text-left">
-        <h2 className="text-3xl font-bold uppercase mb-4">
+        <h2
+          className={`"text-3xl font-bold uppercase mb-4 ${anton.className}`}
+          style={{ fontSize: "40px" }}
+        >
           {videos[current].title}
         </h2>
-        <p className="text-lg mb-8">{videos[current].text}</p>
+        <p className={"text-lg mb-8"}>{videos[current].text}</p>
         <div className="hidden md:flex justify-center md:justify-start gap-6">
           <button
             onClick={prev}

@@ -15,7 +15,6 @@ export default function Navbar() {
   // Add scroll event listener
   useEffect(() => {
     const handleScroll = () => {
-      // Check if the user has scrolled more than 15% of the viewport height
       if (window.scrollY > window.innerHeight * 0.15) {
         setIsScrolled(true);
         controls.start({ backgroundColor: "rgba(0, 0, 0, 0.7)" });
@@ -35,7 +34,7 @@ export default function Navbar() {
     <motion.div
       animate={controls}
       initial={{ backgroundColor: "rgba(0, 0, 0, 0.4)" }}
-      className="fixed top-10 left-1/2 transform -translate-x-1/2 z-50 w-[85%] px-6 py-4 backdrop-blur-md flex flex-col transition-all duration-300 rounded-2xl"
+      className={`fixed top-0 left-0 z-50 w-full px-6 py-4 backdrop-blur-md flex flex-col transition-all duration-300 rounded-none sm:top-10 sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:w-[85%] sm:rounded-2xl rounded-b-2xl`}
     >
       {/* Top Navbar Section */}
       <div className="w-full flex items-center justify-between">
@@ -60,6 +59,27 @@ export default function Navbar() {
           <Link href="/testimonial">Contact</Link>
         </nav>
 
+        {/* Medici/Farmacisti Button for Desktop */}
+        <button className="hidden sm:flex items-center bg-[#3b62ac] text-white font-semibold px-4 py-2 rounded-full shadow hover:scale-105 transition">
+          Medici/Farmacisti
+          <span className="ml-2 bg-red-600 text-white rounded-full p-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="size-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M12 4.5v15m7.5-7.5h-15"
+              />
+            </svg>
+          </span>
+        </button>
+
         {/* Hamburger Menu for Mobile */}
         <button
           className="sm:hidden flex items-center justify-center w-10 h-10 bg-white/10 text-white rounded-full shadow"
@@ -70,27 +90,6 @@ export default function Navbar() {
           ) : (
             <span className="text-xl font-bold">☰</span>
           )}
-        </button>
-
-        {/* Medici/Farmacisti Button Desktop */}
-        <button className="hidden sm:flex items-center bg-[#3b62ac] text-white font-semibold px-4 py-2 rounded-full shadow hover:scale-105 transition">
-          Medici/Farmacisti
-          <span className="ml-2 bg-red-600 text-white rounded-full p-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 4.5v15m7.5-7.5h-15"
-              />
-            </svg>
-          </span>
         </button>
       </div>
 
@@ -113,7 +112,7 @@ export default function Navbar() {
             Contact
           </Link>
 
-          {/* Button */}
+          {/* Medici/Farmacisti Button for Mobile */}
           <button className="mt-4 flex items-center bg-[#3b62ac] text-white font-semibold px-4 py-2 rounded-full shadow hover:scale-105 transition">
             Medici/Farmacisti
             <span className="ml-2 bg-red-600 text-white rounded-full p-1">

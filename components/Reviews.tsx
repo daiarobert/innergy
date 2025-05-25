@@ -1,4 +1,8 @@
 import Image from "next/image"; // Import Image from Next.js
+import { Anton, Inter } from "next/font/google";
+
+const anton = Anton({ subsets: ["latin"], weight: "400" });
+const inter = Inter({ subsets: ["latin"], weight: "600" });
 
 const reviews = [
   {
@@ -21,9 +25,12 @@ const reviews = [
 export default function CustomerReviews() {
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-20 bg-white">
-      <h2 className="text-3xl font-bold text-center text-gray-800 uppercase tracking-wide mb-10 relative">
+      <h2
+        className={`text-3xl font-bold text-center text-gray-800 uppercase tracking-wide mb-10 relative ${anton.className}`}
+        style={{ fontSize: "40px" }}
+      >
         <span className="inline-block relative">
-          <span className="z-10 relative">Recenzii Clienți</span>
+          <span className="z-10 relative ">Recenzii Clienți</span>
           <span className="absolute inset-x-0 bottom-0 h-1 bg-[#3b62ac] rounded-full -z-10"></span>
         </span>
       </h2>
@@ -45,7 +52,7 @@ export default function CustomerReviews() {
                 />
               ))}
             </div>
-            <p className="text-gray-700 mb-4 italic">"{review.text}"</p>
+            <p className={"text-gray-700 mb-4 italic"}>"{review.text}"</p>
             <p className="text-sm font-semibold text-gray-900">
               — {review.name}
             </p>
