@@ -1,13 +1,15 @@
 "use client";
 
 import { Playfair_Display, Inter } from "next/font/google";
+import Image from "next/image";
+import { motion } from "framer-motion";
 
 const playfair = Playfair_Display({ subsets: ["latin"], weight: "600" });
 const inter = Inter({ subsets: ["latin"], weight: ["400", "500"] });
 
 export default function Hero() {
   return (
-    <section className="relative h-[70vh] w-full  bg-black">
+    <section className="relative h-[55vh] sm:h-[70vh] w-full  bg-black">
       {/* Background video */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
@@ -37,29 +39,31 @@ export default function Hero() {
       {/* Hero Content */}
       <div className="relative z-30 flex flex-col items-center justify-center h-full text-center text-white px-4">
         <h1
-          className={`text-4xl md:text-6xl font-bold uppercase tracking-wide ${playfair.className}`}
+          className={`text-4xl mt-20 md:text-6xl font-bold uppercase tracking-wide ${playfair.className}`}
         >
           Echilibrul începe din interior
         </h1>
         <p className={`"mt-4 text-lg md:text-xl max-w-2xl" ${inter.className}`}>
           Mai multă energie. Mai multă stare de bine.
         </p>
-
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          strokeWidth={1.5}
-          stroke="currentColor"
-          className="size-14 mt-10 text-white animate-bounce"
+        <motion.div
+          animate={{
+            y: [0, 10, 0], // Moves the arrow down by 10px and back up
+          }}
+          transition={{
+            duration: 1.5, // Animation duration
+            repeat: Infinity, // Repeat the animation infinitely
+            ease: "easeInOut", // Smooth easing
+          }}
+          className="mt-10"
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="m4.5 5.25 7.5 7.5 7.5-7.5m-15 6 7.5 7.5 7.5-7.5"
-            fill="none" // ✅ explicitly no fill here
+          <Image
+            src="/arrow-down.svg"
+            alt="arrow-down"
+            width={100}
+            height={100}
           />
-        </svg>
+        </motion.div>
       </div>
     </section>
   );

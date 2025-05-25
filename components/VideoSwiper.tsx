@@ -45,14 +45,14 @@ export default function VideoCarousel() {
   const swipeThreshold = 100;
 
   return (
-    <div className=" bg-[rgba(239, 239, 239, 0.673)] text-black flex flex-col md:flex-row items-center justify-center gap-12 px-6 py-16 overflow-hidden">
+    <div className="bg-[rgba(239, 239, 239, 0.673)] text-black flex flex-col md:flex-row items-center justify-center gap-12 px-6 py-16 overflow-hidden">
       {/* LEFT TEXT & CONTROLS */}
       <div className="flex-1 max-w-md text-center md:text-left">
         <h2 className="text-3xl font-bold uppercase mb-4">
           {videos[current].title}
         </h2>
         <p className="text-lg mb-8">{videos[current].text}</p>
-        <div className="flex justify-center md:justify-start gap-6">
+        <div className="hidden md:flex justify-center md:justify-start gap-6">
           <button
             onClick={prev}
             className="bg-black text-white p-3 rounded-full hover:scale-110 transition"
@@ -70,6 +70,20 @@ export default function VideoCarousel() {
 
       {/* RIGHT: Full Phone Frame with Drag & Dots */}
       <div className="relative w-[230px] h-[390px]">
+        {/* Arrows for Mobile */}
+        <button
+          onClick={prev}
+          className="absolute left-[-60px] top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full hover:scale-110 transition md:hidden"
+        >
+          <ArrowLeft />
+        </button>
+        <button
+          onClick={next}
+          className="absolute right-[-60px] top-1/2 -translate-y-1/2 bg-black text-white p-3 rounded-full hover:scale-110 transition md:hidden"
+        >
+          <ArrowRight />
+        </button>
+
         <AnimatePresence mode="wait">
           <motion.div
             key={videos[current].id}
@@ -120,7 +134,7 @@ export default function VideoCarousel() {
             <div
               key={i}
               className={`h-2 w-6 rounded-full ${
-                i === current ? "bg-white" : "bg-white/30"
+                i === current ? "bg-[#3B62ACFF]" : "bg-black/30"
               } transition`}
             />
           ))}

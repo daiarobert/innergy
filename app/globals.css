@@ -50,3 +50,33 @@ html {
   color: #005eb1;
   animation: ease-in-out 0.3s;
 }
+
+.navbar-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  backdrop-filter: blur(20px); /* Blur effect */
+  -webkit-backdrop-filter: blur(20px); /* Safari support */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+  border-radius: 0 0 1rem 1rem; /* Rounded bottom corners */
+  z-index: 50; /* Ensure it appears above other elements */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+@keyframes move-down {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-move-down {
+  animation: move-down 1.5s infinite ease-in-out;
+}

@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import VideoSwiper from "@/components/VideoSwiper";
 import IntroSection from "@/components/IntroSection";
 import ProductCarousel from "@/components/ProductCarousel";
+import Reviews from "@/components/Reviews";
 import Footer from "@/components/Footer";
 
 export default function HomePage() {
@@ -14,6 +15,7 @@ export default function HomePage() {
       <ProductCarousel />
       {/* Add your main content here */}
       <VideoSwiper />
+      <Reviews />
       <Footer />
 
       {/* <h1 className="text-4xl font-bold">Welcome to the Website</h1>

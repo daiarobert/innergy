@@ -49,21 +49,21 @@ export default function IntroSection() {
         </div>
 
         {/* Despre noi: dropdown pe mobil, deschis pe desktop */}
-        <div className="bg-[#f8f8f8] rounded-xl shadow-md border border-gray-200 overflow-hidden">
+        <div className="bg-[#3B62ACFF] rounded-xl shadow-md border border-gray-200 overflow-hidden">
           {/* Header vizibil mereu */}
           <button
             onClick={() => setOpen(!open)}
             className="w-full flex items-center justify-between px-6 py-4 md:cursor-default md:pointer-events-none"
           >
             <div className="flex items-center gap-3">
-              <Info className="text-[#3B62ACFF]" size={28} />
-              <h3 className="text-lg font-semibold text-black">Despre noi</h3>
+              <Info className="text-white" size={28} />
+              <h3 className="text-lg font-semibold text-white">Despre noi</h3>
             </div>
             <span className="md:hidden">
               {open ? (
-                <Minus className="text-[#3B62ACFF]" size={20} />
+                <Minus className="text-white" size={20} />
               ) : (
-                <Plus className="text-[#3B62ACFF]" size={20} />
+                <Plus className="text-white" size={20} />
               )}
             </span>
           </button>
@@ -71,7 +71,9 @@ export default function IntroSection() {
           {/* Conținut */}
           <div
             className={`transition-all duration-300 px-6 pb-6 md:pb-8 ${
-              open ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+              open
+                ? "max-h-[1000px] opacity-100 block"
+                : "max-h-0 opacity-0 hidden"
             } md:max-h-none md:opacity-100`}
           >
             <div className="flex flex-col md:flex-row items-start gap-6">
@@ -79,7 +81,7 @@ export default function IntroSection() {
                 <Info className="text-[#3B62ACFF]" size={40} />
               </div>
               <div>
-                <p className="text-base leading-relaxed mb-3 text-black">
+                <p className="text-base leading-relaxed mb-3 text-white">
                   Cu aproape 15 ani de experiență în studiul prebioticelor,
                   probioticelor și simbioticelor, Innergy aduce în România
                   soluții inovatoare pentru echilibrarea microbiotei intestinale
@@ -89,7 +91,7 @@ export default function IntroSection() {
                 </p>
                 <a
                   href="#"
-                  className="text-[#3B62ACFF] font-semibold hover:underline transition"
+                  className="text-white font-semibold hover:underline transition"
                 >
                   Citește mai mult →
                 </a>
