@@ -38,7 +38,7 @@ export default function IntroSection() {
           className={`"text-3xl font-bold text-center mb-12 uppercase" ${anton.className}`}
           style={{ fontSize: "35px" }}
         >
-          Beneficii cheie
+          BENEFICII CHEIE
         </h2>
 
         {/* Grid beneficii */}

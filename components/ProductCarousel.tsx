@@ -14,7 +14,7 @@ const products = [
     name: "ATOPRIN",
     price: "$1.9",
     color: "text-orange-500",
-    image: "/atoprin.png",
+    image: "/28.png",
     colorBg: "rgba(0, 196, 193, 0.10)",
     details: [
       {
@@ -48,8 +48,8 @@ const products = [
     name: "Bifido Baby®",
     price: "$1.9",
     color: "text-purple-600",
-    image: "/bifido-baby-1-300x300.png",
-    colorBg: "rgba(255, 94, 147, 0.10)",
+    image: "/27.png",
+    colorBg: "white",
     details: [
       { title: "Compozitie", content: "Probiotics, Prebiotics, etc." },
       {
@@ -63,7 +63,7 @@ const products = [
     name: "Bifido Plus®",
     price: "$1.9",
     color: "text-red-500",
-    image: "/bifido-plus-2-300x300.png",
+    image: "/29.png",
     colorBg: "rgba(140, 180, 32, 0.10)",
     details: [
       { title: "Compozitie", content: "Probiotics, Fiber, etc." },
@@ -165,7 +165,7 @@ export default function ProductCarousel() {
             {products.map((product, i) => (
               <div
                 key={i}
-                className="keen-slider__slide rounded-xl p-6 text-center relative group"
+                className="keen-slider__slide rounded-xl text-center relative group"
                 style={{
                   backgroundColor: product.colorBg,
                   boxShadow: `0 4px 14px ${product.colorBg}`,
@@ -173,8 +173,8 @@ export default function ProductCarousel() {
                 onClick={() => openModal(product)} // Open modal on click
               >
                 {/* Info Icon */}
-                <div className="absolute top-4 right-4 bg-white p-2 rounded-full shadow-md">
-                  <Info className="text-black" size={20} />
+                <div className="absolute top-4 right-4 bg-blue p-2 rounded-full shadow-md z-30">
+                  <Info className="text-black" size={25} />
                 </div>
 
                 {/* Glowing Effect */}
@@ -185,11 +185,17 @@ export default function ProductCarousel() {
                   }}
                 ></div>
 
-                <img
-                  src={product.image}
-                  alt={product.name}
-                  className="relative z-10 mx-auto h-52 object-contain mb-6"
-                />
+                {/* Product Image */}
+                <div className="relative z-10 h-full flex items-center justify-center">
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="h-full w-full object-cover rounded-xl"
+                  />
+                </div>
+
+                {/* Product Name */}
+                {/* Product Name */}
                 <h3
                   className={`text-lg font-bold uppercase tracking-wide relative z-10 ${anton.className}`}
                 >
@@ -215,7 +221,7 @@ export default function ProductCarousel() {
               <img
                 src={selectedProduct.image}
                 alt={selectedProduct.name}
-                className="mx-auto h-40 object-contain"
+                className="mx-auto h-80 object-cover"
               />
             </div>
 

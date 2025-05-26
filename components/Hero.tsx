@@ -40,6 +40,7 @@ export default function Hero() {
       <div className="relative z-30 flex flex-col items-center justify-center h-full text-center text-white px-4">
         <h1
           className={`text-4xl mt-20 md:text-6xl font-bold uppercase tracking-wide ${anton.className}`}
+          style={{ lineHeight: "50px", fontWeight: "52px" }}
         >
           Echilibrul începe din interior
         </h1>
