@@ -14,21 +14,19 @@
 
 
 /* DaisyUI + ShadCN theme support */
-body,
-html {
-  overscroll-behavior: none;
-  overflow-x: hidden;
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   max-width: 100%;
-  max-height: 100%;
-  /* outline: 5px solid red; */
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
-main,
-html {
-  padding: 0;
-  margin: 0;
-  height: 100vh;
-  width: 100%;
+main {
+  flex: 1;
 }
 
 *,
@@ -79,4 +77,85 @@ html {
 
 .animate-move-down {
   animation: move-down 1.5s infinite ease-in-out;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Carousel container */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background-color: white;
+}
+
+/* Carousel track */
+.carousel-track {
+  display: flex;
+  animation: scroll 20s linear infinite;
+}
+
+/* Carousel items */
+.carousel-item {
+  flex-shrink: 0;
+  width: 10rem; /* Adjust width to match your logo size */
+  height: 5rem; /* Adjust height to match your logo size */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Infinite scrolling animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) {
+  .carousel-item {
+    width: 12rem; /* Larger logos for bigger screens */
+    height: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel-item {
+    width: 14rem;
+    height: 7rem;
+  }
+}
+
+/* Autoscroll animation */
+@keyframes autoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Apply animation to the keen-slider container */
+.auto-scroll {
+  display: flex;
+  animation: autoScroll 20s linear infinite; /* Adjust duration for speed */
+}
+
+/* Ensure keen-slider slides are properly aligned */
+.keen-slider__slide {
+  flex-shrink: 0;
+  width: calc(100% / 3); /* Adjust based on perView */
+  height: auto;
 }

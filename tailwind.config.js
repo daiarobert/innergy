@@ -7,7 +7,7 @@ export const content = [
 export const theme = {
   extend: {},
 };
-export const plugins = [require("tailwindcss-animate")];
+export const plugins = [];
 
 // // DaisyUI configuration
 // export const daisyui = {

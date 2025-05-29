@@ -2,11 +2,14 @@
 
 import { CheckCircle, Info, Plus, Minus } from "lucide-react";
 import { useState } from "react";
-import { Funnel_Sans, Anton, Inter } from "next/font/google";
+import { Anton, Inter } from "next/font/google";
 
-const anton = Anton({ subsets: ["latin"], weight: "400" });
-const funnel = Funnel_Sans({ subsets: ["latin"], weight: "400" });
-const inter = Inter({ subsets: ["latin"], weight: ["400", "500"] });
+const anton = Anton({ subsets: ["latin"], weight: "400", display: "swap" });
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+});
 
 const benefits = [
   {

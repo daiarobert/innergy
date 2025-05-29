@@ -53,7 +53,7 @@ export default function VideoCarousel() {
       {/* LEFT TEXT & CONTROLS */}
       <div className="flex-1 max-w-md text-center md:text-left">
         <h2
-          className={`"text-3xl font-bold uppercase mb-4 ${anton.className}`}
+          className={`text-3xl font-bold uppercase mb-4 ${anton.className}`}
           style={{ fontSize: "40px" }}
         >
           {videos[current].title}

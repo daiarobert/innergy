@@ -8,5 +8,6 @@ export default function SessionProviderWrapper({
 }: {
   children: ReactNode;
 }) {
+  console.log("SessionProviderWrapper rendered");
   return <SessionProvider>{children}</SessionProvider>;
 }

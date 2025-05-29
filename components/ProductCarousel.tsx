@@ -3,11 +3,9 @@
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 import { useState } from "react";
-import { ArrowLeft, ArrowRight, Info } from "lucide-react";
-import { Anton, Inter } from "next/font/google";
-
-const anton = Anton({ subsets: ["latin"], weight: "400" });
-const inter = Inter({ subsets: ["latin"], weight: "600" });
+import ProductCarouselHeader from "./ProductCarouselHeader";
+import ProductSlide from "./ProductSlide";
+import ProductModal from "./ProductModal";
 
 const products = [
   {
@@ -15,7 +13,7 @@ const products = [
     price: "$1.9",
     color: "text-orange-500",
     image: "/28.png",
-    colorBg: "rgba(0, 196, 193, 0.10)",
+    colorBg: "white",
     details: [
       {
         title: "Compozitie",
@@ -64,7 +62,7 @@ const products = [
     price: "$1.9",
     color: "text-red-500",
     image: "/29.png",
-    colorBg: "rgba(140, 180, 32, 0.10)",
+    colorBg: "white",
     details: [
       { title: "Compozitie", content: "Probiotics, Fiber, etc." },
       {
@@ -75,16 +73,14 @@ const products = [
     ],
   },
 ];
-
 export default function ProductCarousel() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [selectedProduct, setSelectedProduct] = useState<
-    (typeof products)[number] | null
-  >(null); // Track the selected product
-  const [isModalOpen, setIsModalOpen] = useState(false); // Track modal state
+  const [selectedProduct, setSelectedProduct] = useState<any | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDragging, setIsDragging] = useState(false);
 
   const [sliderRef, instanceRef] = useKeenSlider({
-    slides: { perView: 1.1, spacing: 20 },
+    slides: { perView: 1.2, spacing: 20 },
     breakpoints: {
       "(min-width: 768px)": {
         slides: { perView: 2.5, spacing: 24 },
@@ -94,27 +90,17 @@ export default function ProductCarousel() {
       },
     },
     slideChanged(s) {
-      setCurrentSlide(s.track.details.rel); // Update the current slide index
+      setCurrentSlide(s.track.details.rel);
     },
+    dragStarted: () => setIsDragging(true),
+    dragEnded: () => setIsDragging(false),
   });
 
-  interface ProductDetail {
-    title: string;
-    content: string;
-  }
-
-  interface Product {
-    name: string;
-    price: string;
-    color: string;
-    image: string;
-    colorBg: string;
-    details: ProductDetail[];
-  }
-
-  const openModal = (product: Product): void => {
-    setSelectedProduct(product);
-    setIsModalOpen(true);
+  const openModal = (product: any): void => {
+    if (!isDragging) {
+      setSelectedProduct(product);
+      setIsModalOpen(true);
+    }
   };
 
   const closeModal = () => {
@@ -126,82 +112,18 @@ export default function ProductCarousel() {
     <section className="bg-white text-black py-8 px-4">
       <div className="max-w-7xl mx-auto bg-gray-100 rounded-xl shadow-md p-8 md:p-12">
         {/* Header */}
-        <div className="flex flex-col md:flex-row items-center justify-between mb-12 gap-4">
-          <div>
-            <span
-              className={`inline-block bg-[#3B62ACFF] text-white text-sm font-bold px-3 py-1 rounded-full tracking-wide mb-2 ${inter.className}`}
-            >
-              Probiotice & Prebiotice
-            </span>
-            <h2
-              className={`text-3xl md:text-4xl font-extrabold uppercase leading-snug ${anton.className}`}
-            >
-              Alege ce-i mai bun
-              <br />
-              pentru echilibrul tău interior
-            </h2>
-          </div>
-
-          {/* Arrows */}
-          <div className="hidden md:flex gap-4">
-            <button
-              onClick={() => instanceRef.current?.prev()}
-              className="w-10 h-10 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-white transition"
-            >
-              <ArrowLeft />
-            </button>
-            <button
-              onClick={() => instanceRef.current?.next()}
-              className="w-10 h-10 rounded-full border border-black flex items-center justify-center hover:bg-black hover:text-white transition"
-            >
-              <ArrowRight />
-            </button>
-          </div>
-        </div>
+        <ProductCarouselHeader instanceRef={instanceRef} />
 
         {/* Carousel */}
         <div className="relative">
           <div ref={sliderRef} className="keen-slider">
             {products.map((product, i) => (
-              <div
+              <ProductSlide
                 key={i}
-                className="keen-slider__slide rounded-xl text-center relative group"
-                style={{
-                  backgroundColor: product.colorBg,
-                  boxShadow: `0 4px 14px ${product.colorBg}`,
-                }}
-                onClick={() => openModal(product)} // Open modal on click
-              >
-                {/* Info Icon */}
-                <div className="absolute top-4 right-4 bg-blue p-2 rounded-full shadow-md z-30">
-                  <Info className="text-black" size={25} />
-                </div>
-
-                {/* Glowing Effect */}
-                <div
-                  className="absolute inset-0 rounded-xl blur-lg opacity-50 group-hover:opacity-100 transition-all duration-300"
-                  style={{
-                    background: product.colorBg,
-                  }}
-                ></div>
-
-                {/* Product Image */}
-                <div className="relative z-10 h-full flex items-center justify-center">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="h-full w-full object-cover rounded-xl"
-                  />
-                </div>
-
-                {/* Product Name */}
-                {/* Product Name */}
-                <h3
-                  className={`text-lg font-bold uppercase tracking-wide relative z-10 ${anton.className}`}
-                >
-                  {product.name}
-                </h3>
-              </div>
+                product={product}
+                onClick={() => openModal(product)}
+                isFirst={i === 0}
+              />
             ))}
           </div>
         </div>
@@ -209,49 +131,7 @@ export default function ProductCarousel() {
 
       {/* Modal */}
       {isModalOpen && selectedProduct && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <div className="bg-white rounded-xl shadow-lg max-w-lg w-full p-6">
-            {/* Modal Header */}
-            <div
-              className="rounded-t-xl"
-              style={{
-                backgroundColor: selectedProduct.colorBg,
-              }}
-            >
-              <img
-                src={selectedProduct.image}
-                alt={selectedProduct.name}
-                className="mx-auto h-80 object-cover"
-              />
-            </div>
-
-            {/* Modal Content */}
-            <div className="p-4">
-              <h3
-                className={`text-xl font-bold uppercase mb-4 ${anton.className}`}
-              >
-                {selectedProduct.name}
-              </h3>
-              {selectedProduct.details.map((detail, index) => (
-                <details
-                  key={index}
-                  className="mb-4 border-b border-gray-200 pb-2"
-                >
-                  <summary className="font-semibold cursor-pointer">
-                    {detail.title}
-                  </summary>
-                  <p className="text-sm text-gray-600 mt-2">{detail.content}</p>
-                </details>
-              ))}
-              <button
-                onClick={closeModal}
-                className="mt-4 px-4 py-2 bg-[#3B62ACFF] text-white font-semibold rounded-full hover:scale-105 transition"
-              >
-                Inchide
-              </button>
-            </div>
-          </div>
-        </div>
+        <ProductModal product={selectedProduct} onClose={closeModal} />
       )}
     </section>
   );

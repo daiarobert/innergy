@@ -1,8 +1,7 @@
 import Image from "next/image"; // Import Image from Next.js
-import { Anton, Inter } from "next/font/google";
+import { Anton } from "next/font/google";
 
-const anton = Anton({ subsets: ["latin"], weight: "400" });
-const inter = Inter({ subsets: ["latin"], weight: "600" });
+const anton = Anton({ subsets: ["latin"], weight: "400", display: "swap" });
 
 const reviews = [
   {
