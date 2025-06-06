@@ -1,36 +1,48 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Innergy – Fullstack Next.js Dashboard & Landing Page
 
-## Getting Started
+A modern fullstack project featuring a marketing landing page and a protected dashboard built with Next.js, TypeScript, TailwindCSS, MongoDB, and Auth0 authentication.
 
-First, run the development server:
+## 🔍 Features
+
+### 🌐 Public Website (Landing Page)
+
+- Built with Next.js App Router & TypeScript
+- Responsive design using TailwindCSS and DaisyUI
+- Animated sections with Framer Motion
+- SEO-ready structure and component-based layout
+
+### 🔐 Admin Dashboard
+
+- Auth0 authentication (Login with Google)
+- Protected routes using middleware
+- Create, edit, and delete:
+  - 🛍️ Products
+  - 📰 Articles
+- Form validation and rich text inputs (ShadCN)
+- MongoDB integration for data persistence
+
+### 🔜 Coming Soon
+
+- Public fetch endpoints to display articles & products on the homepage
+- Filtering and pagination on frontend
+- Optional search & tags system
+
+## ⚙️ Tech Stack
+
+- **Frontend**: Next.js 14 (App Router), TypeScript, TailwindCSS, DaisyUI, Framer Motion
+- **Backend**: Next.js API routes, MongoDB (Mongoose)
+- **Auth**: Auth0 (Google Login)
+- **Dashboard UI**: ShadCN, Radix UI
+- **Dev Tools**: GitHub, Vercel, ESLint, Prettier
+
+## 🚀 Getting Started
 
 ```bash
+git clone https://github.com/daiarobert/innergy.git
+cd innergy
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```

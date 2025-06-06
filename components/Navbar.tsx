@@ -10,7 +10,7 @@ export default function Navbar() {
 
   return (
     <div
-      className={`fixed top-0 left-0 z-50 w-full px-6 py-4 flex flex-col transition-all duration-300 sm:top-10 sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:w-[85%] sm:rounded-2xl ${
+      className={`fixed top-0 left-0 z-50 w-full px-6 py-4 flex flex-col transition-all duration-300 lg:top-10 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:w-[85%] lg:rounded-2xl ${
         isOpen ? "rounded-b-2xl" : "rounded-b-2xl"
       }`}
       style={{
@@ -29,7 +29,7 @@ export default function Navbar() {
           />
         </Link>
 
-        <nav className="hidden sm:flex items-center gap-4 text-white text-sm font-semibold uppercase tracking-wide">
+        <nav className="hidden lg:flex items-center gap-4 text-white text-sm font-semibold uppercase tracking-wide">
           <Link href="/about">Portofoliu</Link>
           <span>/</span>
           <Link href="/shop">Despre Noi</Link>
@@ -42,7 +42,7 @@ export default function Navbar() {
         </nav>
 
         <Link href="/medici-farmacisti">
-          <button className="hidden sm:flex items-center bg-[#3b62ac] text-white font-semibold px-4 py-2 rounded-full shadow hover:scale-105 transition">
+          <button className="hidden lg:flex items-center bg-[#3b62ac] text-white font-semibold px-4 py-2 rounded-full shadow hover:scale-105 transition">
             Medici/Farmacisti
             <span className="ml-2 bg-red-600 text-white rounded-full p-1">
               <svg
@@ -64,7 +64,7 @@ export default function Navbar() {
         </Link>
 
         <button
-          className="sm:hidden flex items-center justify-center w-10 h-10 bg-white/10 text-white rounded-full shadow"
+          className="lg:hidden flex items-center justify-center w-10 h-10 bg-white/10 text-white rounded-full shadow"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? (

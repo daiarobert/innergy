@@ -16,7 +16,12 @@ export default function LandingPage() {
           type: "video",
           src: "https://www.innergy.ro/wp-content/uploads/2023/06/Innergy-Slideshow-1.mp4",
         }}
-        text="Inner balance for a quality life"
+        text=""
+        // mobileImages={[
+        //   "/atropin-hero.png",
+        //   "/bifido-baby-hero.png",
+        //   "/bifido-plus-hero.png",
+        // ]}
       />
       <IntroSection />
       <FeaturedArticles />
