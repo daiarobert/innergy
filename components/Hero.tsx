@@ -20,6 +20,7 @@ export default function Hero({ height, media, text }: HeroProps) {
           loop
           playsInline
           preload="metadata"
+          poster="/fallback.jpg"
         />
       ) : (
         <img
@@ -30,7 +31,7 @@ export default function Hero({ height, media, text }: HeroProps) {
       )}
 
       {/* Black overlay */}
-      <div className="absolute inset-0 bg-black/40 z-10" />
+      <div className="absolute inset-0 bg-black/20 z-10" />
 
       {/* Hero Content */}
       <div className="relative z-30 flex flex-col items-center justify-center h-full text-center text-white px-4">

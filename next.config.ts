@@ -1,10 +1,23 @@
 /** @type {import('next').NextConfig} */
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
 const nextConfig = {
   images: {
-    domains: [
-      "lh3.googleusercontent.com", // already for Google profile
-      "cdn.thewirecutter.com",
-      "www.innergy.ro", // ✅ allow this new one
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "www.innergy.ro",
+      },
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.thewirecutter.com",
+      },
     ],
   },
   eslint: {
@@ -13,11 +26,11 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/(.*)", // Se aplică pentru toate rutele
+        source: "/(.*)",
         headers: [
           {
             key: "Cache-Control",
-            value: "public, max-age=31536000, immutable", // Cache pentru un an
+            value: "public, max-age=31536000, immutable",
           },
         ],
       },
@@ -25,4 +38,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withBundleAnalyzer(nextConfig);

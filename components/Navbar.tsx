@@ -30,15 +30,15 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden lg:flex items-center gap-4 text-white text-sm font-semibold uppercase tracking-wide">
-          <Link href="/about">Portofoliu</Link>
+          <Link href="/portofoliu">Portofoliu</Link>
           <span>/</span>
-          <Link href="/shop">Despre Noi</Link>
+          <Link href="/despre-noi">Despre Noi</Link>
           <span>/</span>
-          <Link href="/testimonial">Articole</Link>
+          <Link href="/articole">Articole</Link>
           <span>/</span>
-          <Link href="/testimonial">Cariere</Link>
+          <Link href="/cariere">Cariere</Link>
           <span>/</span>
-          <Link href="/testimonial">Contact</Link>
+          <Link href="/contact">Contact</Link>
         </nav>
 
         <Link href="/medici-farmacisti">
@@ -77,19 +77,19 @@ export default function Navbar() {
 
       {isOpen && (
         <div className="w-full mt-4 flex flex-col items-center gap-4 py-6 text-white text-sm font-semibold uppercase tracking-wide border-t border-white/20">
-          <Link href="/about" onClick={() => setIsOpen(false)}>
+          <Link href="/portofoliu" onClick={() => setIsOpen(false)}>
             Portofoliu
           </Link>
-          <Link href="/shop" onClick={() => setIsOpen(false)}>
+          <Link href="/despre-noi" onClick={() => setIsOpen(false)}>
             Despre Noi
           </Link>
-          <Link href="/testimonial" onClick={() => setIsOpen(false)}>
+          <Link href="/articole" onClick={() => setIsOpen(false)}>
             Articole
           </Link>
-          <Link href="/testimonial" onClick={() => setIsOpen(false)}>
+          <Link href="/cariere" onClick={() => setIsOpen(false)}>
             Cariere
           </Link>
-          <Link href="/testimonial" onClick={() => setIsOpen(false)}>
+          <Link href="/contact" onClick={() => setIsOpen(false)}>
             Contact
           </Link>
 

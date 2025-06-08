@@ -11,7 +11,7 @@ export default function LandingPage() {
   return (
     <>
       <Hero
-        height="70vh"
+        height="60vh"
         media={{
           type: "video",
           src: "https://www.innergy.ro/wp-content/uploads/2023/06/Innergy-Slideshow-1.mp4",
