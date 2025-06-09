@@ -85,7 +85,7 @@ export default function ProdusePage() {
               <div
                 key={idx}
                 onClick={() => openModal(product)}
-                className="cursor-pointer border border-gray-200 rounded-xl shadow hover:shadow-md transition"
+                className="cursor-pointer border border-gray-200 rounded-xl shadow hover:shadow-2xl hover:scale-105 transition-all duration-300 bg-white"
               >
                 <img
                   src={product.image}
