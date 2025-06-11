@@ -48,7 +48,7 @@ export default function Hero({ height, media, text }: HeroProps) {
       </div>
 
       {/* Wave Effect */}
-      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-[0] z-20">
+      <div className="absolute bottom-[-2px] left-0 w-full overflow-hidden leading-[0] z-20">
         <svg
           className="relative block w-full h-[150px]"
           xmlns="http://www.w3.org/2000/svg"

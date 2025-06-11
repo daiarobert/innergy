@@ -11,16 +11,16 @@ const inter = Inter({ subsets: ["latin"], weight: "600" });
 const videos = [
   {
     id: 1,
-    title: "RELAX APPLEJOY",
-    text: "The taste of fresh apples and pure joy.",
-    src: "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/ela.craciun/videos/4066279786969924&show_text=false",
+    title: "Probiotice & Prebiotice",
+    text: "Probiotice si prebiotice pentru un sistem digestiv sanatos.",
+    src: "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/doctormihail/videos/964193538677529&show_text=false",
     type: "iframe",
   },
   {
     id: 2,
-    title: "RELAX PEACHFUN",
-    text: "Juicy peaches that make you smile.",
-    src: "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/doctormihail/videos/964193538677529&show_text=false",
+    title: "RELAX APPLEJOY",
+    text: "The taste of fresh apples and pure joy.",
+    src: "https://www.facebook.com/plugins/video.php?href=https://www.facebook.com/ela.craciun/videos/4066279786969924&show_text=false",
     type: "iframe",
   },
   {
@@ -49,7 +49,7 @@ export default function VideoCarousel() {
   const swipeThreshold = 100;
 
   return (
-    <div className="bg-[rgba(239, 239, 239, 0.673)] text-black flex flex-col md:flex-row items-center justify-center gap-12 px-6 py-16 overflow-hidden">
+    <div className="bg-[rgba(239, 239, 239, 0.673)] text-black flex flex-col md:flex-row items-center justify-center gap-12 px-6 mt-[2px] overflow-hidden">
       {/* LEFT TEXT & CONTROLS */}
       <div className="flex-1 max-w-md text-center md:text-left">
         <h2
@@ -58,7 +58,7 @@ export default function VideoCarousel() {
         >
           {videos[current].title}
         </h2>
-        <p className={"text-lg mb-8"}>{videos[current].text}</p>
+        <p className={"text-lg mb-[-30px]"}>{videos[current].text}</p>
         <div className="hidden md:flex justify-center md:justify-start gap-6">
           <button
             onClick={prev}

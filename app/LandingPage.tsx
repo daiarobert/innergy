@@ -23,11 +23,11 @@ export default function LandingPage() {
         //   "/bifido-plus-hero.png",
         // ]}
       />
+      <VideoSwiper />
       <IntroSection />
       <FeaturedArticles />
-      <ProductCarousel />
       <PartnerCarousel />
-      <VideoSwiper />
+      <ProductCarousel />
       <Reviews />
       <Newsletter />
     </>

@@ -11,7 +11,7 @@ export default function ProductCarouselHeader({
         <span className="inline-block bg-[#3B62ACFF] text-white text-sm font-bold px-3 py-1 rounded-full tracking-wide mb-2">
           Probiotice & Prebiotice
         </span>
-        <h2 className="text-3xl md:text-4xl font-extrabold uppercase leading-snug">
+        <h2 className="text-2xl md:text-4xl font-extrabold uppercase leading-snug">
           Alege ce-i mai bun
           <br />
           pentru echilibrul tău interior

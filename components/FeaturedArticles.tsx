@@ -59,7 +59,7 @@ export default function FeaturedArticles() {
   });
 
   return (
-    <section className="py-4 px-4 max-w-7xl mx-auto">
+    <section className="py-4 px-4 max-w-7xl mt-12 mx-auto">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold text-gray-800">Articole</h2>
