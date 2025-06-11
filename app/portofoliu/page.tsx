@@ -3,6 +3,9 @@
 import Hero from "@/components/Hero";
 import { useState } from "react";
 import ProductModal from "@/components/ProductModal";
+import PartnerCarousel from "@/components/PartnersCarousel";
+import Newsletter from "@/components/Newsletter";
+import FeaturedArticles from "@/components/FeaturedArticles";
 
 const products = [
   {
@@ -73,7 +76,7 @@ export default function ProdusePage() {
         text="produse"
       />
 
-      <main className="min-h-screen bg-white text-black py-12 px-4">
+      <main className="min-h-screen bg-white text-black  px-4">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold text-center mb-10">
             Produsele Noastre
@@ -102,6 +105,9 @@ export default function ProdusePage() {
             ))}
           </div>
         </div>
+        <PartnerCarousel />
+        <Newsletter />
+        <FeaturedArticles />
       </main>
 
       {/* Modal */}

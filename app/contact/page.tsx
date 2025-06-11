@@ -8,7 +8,7 @@ export default function ContactPage() {
         height="60vh"
         media={{
           type: "image",
-          src: "/despre-noi.jpg",
+          src: "https://images.pexels.com/photos/789822/pexels-photo-789822.jpeg?auto=compress&cs=tinysrgb&w=600",
         }}
         text="Contactează-ne"
       />

@@ -18,6 +18,18 @@ const nextConfig = {
         protocol: "https",
         hostname: "cdn.thewirecutter.com",
       },
+      {
+        protocol: "https",
+        hostname: "www.nutrific.ro",
+      },
+      {
+        protocol: "https",
+        hostname: "www.drmax.ro",
+      },
+      {
+        protocol: "https",
+        hostname: "dr-olaru.ro",
+      },
     ],
   },
   eslint: {

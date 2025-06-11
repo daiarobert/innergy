@@ -12,12 +12,12 @@ export default async function ArticolePage() {
         height="60vh"
         media={{
           type: "image",
-          src: "/despre-noi.jpg",
+          src: "https://images.pexels.com/photos/4050347/pexels-photo-4050347.jpeg",
         }}
         text="Articole"
       />
 
-      <section className="max-w-6xl mx-auto px-4 py-12">
+      <section className="max-w-6xl mx-auto px-4 ">
         <h1 className="text-4xl font-bold mb-10 text-center">
           Ultimele articole
         </h1>

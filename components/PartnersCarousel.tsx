@@ -13,7 +13,7 @@ const logos = [
 
 export default function PartnerCarousel() {
   return (
-    <div className="carousel-container">
+    <div className="carousel-container my-4">
       <div className="carousel-track">
         {/* Render logos */}
         {logos.map((logo, i: number) => (

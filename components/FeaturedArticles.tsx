@@ -15,19 +15,22 @@ const featured = [
   {
     id: "2",
     title: "Probiotice și sănătatea intestinului",
-    image: "/animal-allergy.jpg",
+    image:
+      "https://www.nutrific.ro/blog/wp-content/uploads/2023/09/probioticele.png",
     href: "/articole/echilibru-mental",
   },
   {
     id: "3",
     title: "7 lucruri esențiale despre sănătatea colonului",
-    image: "/images/hero-3.jpg",
+    image:
+      "https://www.drmax.ro/_i/1811829167.webp?path=https%3A%2F%2Fbackend.drmax.ro%2Fmedia%2Famasty%2Fblog%2FCancer_de_colon.jpg&format=webp",
     href: "/articole/wellness-definitie",
   },
   {
     id: "4",
     title: "Dieta săracă în fibre: risc pe termen lung",
-    image: "/images/hero-2.jpg",
+    image:
+      "https://dr-olaru.ro/wp-content/uploads/2018/01/dieta-fibre-alimentare-1024x642.jpg",
     href: "/articole/energie-zilnica",
   },
 ];
@@ -56,7 +59,17 @@ export default function FeaturedArticles() {
   });
 
   return (
-    <section className="py-12 px-4 max-w-7xl mx-auto">
+    <section className="py-4 px-4 max-w-7xl mx-auto">
+      {/* Header */}
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-2xl font-bold text-gray-800">Articole</h2>
+        <Link
+          href="/articole"
+          className="text-[#3B62AC] hover:underline flex items-center"
+        >
+          Vezi toate →
+        </Link>
+      </div>
       {/* Carousel */}
       <div ref={sliderRef} className="keen-slider">
         {featured.map((article) => (
@@ -73,8 +86,14 @@ export default function FeaturedArticles() {
               loading="lazy"
               className="w-full h-64 object-cover"
             />
-            <div className="absolute inset-0 bg-black/50 flex items-end p-4">
-              <div className="text-white text-lg font-semibold">
+            <div className="absolute inset-0  flex items-end p-4">
+              <div
+                className="text-white text-lg font-semibold rounded-3xl px-4 py-2"
+                style={{
+                  backgroundColor: "#3b62ac6b",
+                  backdropFilter: "blur(8px)",
+                }}
+              >
                 {article.title}
               </div>
             </div>
