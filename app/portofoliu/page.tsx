@@ -76,9 +76,9 @@ export default function ProdusePage() {
         text="produse"
       />
 
-      <main className=" bg-white text-black  ">
+      <main className=" ">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-4xl font-bold text-center mb-10">
+          <h1 className="font-anton text-[#3B62AC]  text-4xl text-center mb-10">
             Produsele Noastre
           </h1>
 
@@ -106,8 +106,6 @@ export default function ProdusePage() {
           </div>
         </div>
         <PartnerCarousel />
-        <Newsletter />
-        {/* <FeaturedArticles /> */}
       </main>
 
       {/* Modal */}
