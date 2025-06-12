@@ -37,12 +37,7 @@ export default function Hero({ height, media, text }: HeroProps) {
 
       {/* Hero Content */}
       <div className="relative z-30 flex flex-col items-center justify-center h-full text-center text-white px-4">
-        <h1
-          className="text-3xl mt-20 md:text-6xl font-bold uppercase tracking-wide"
-          style={{
-            textShadow: "2px 4px 6px rgba(0, 0, 0, 0.8)", // Subtle shadow effect
-          }}
-        >
+        <h1 className="font-anton text-[40px] mt-4 md:text-6xl  uppercase tracking-wide text-shadow-subtle leading-[1.1]">
           {text}
         </h1>
       </div>

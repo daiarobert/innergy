@@ -62,17 +62,21 @@ export default function DespreNoiPage() {
         text="Despre noi"
       />
 
-      <main className="bg-white text-black px-4">
+      <main className=" bg-white text-black px-4">
         <div className="max-w-4xl mx-auto ">
-          <h1 className="text-4xl font-bold mb-6 text-center">Cine suntem?</h1>
-          <p className="text-lg leading-8 mb-6 text-justify">
+          <h1 className="font-anton text-[#3B62AC] text-4xl mb-6 text-center">
+            Cine suntem?
+          </h1>
+          <p className=" text-lg leading-8 mb-6 text-justify">
             Innergy este mai mult decât un brand de suplimente — este un
             angajament față de sănătatea ta. Am pornit cu o misiune clară: să
             oferim produse inovatoare, susținute științific, care contribuie la
             echilibrul și buna funcționare a organismului.
           </p>
 
-          <h2 className="text-2xl font-semibold mt-10 mb-4">De ce existăm</h2>
+          <h2 className="font-anton text-[#3B62AC] text-2xl  mt-10 mb-4">
+            De ce existăm
+          </h2>
           <p className="text-base leading-7 mb-6 text-justify">
             Într-o lume agitată și plină de factori de stres, credem că
             sănătatea începe din interior. De aceea, am ales să ne concentrăm pe
@@ -80,7 +84,7 @@ export default function DespreNoiPage() {
             imunitar și echilibrul general.
           </p>
 
-          <h2 className="text-2xl font-semibold mt-10 mb-4">
+          <h2 className="font-anton text-[#3B62AC] text-2xl  mt-10 mb-4">
             Ce ne diferențiază
           </h2>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 list-none">
@@ -106,7 +110,7 @@ export default function DespreNoiPage() {
             </li>
           </ul>
 
-          <h2 className="text-2xl font-semibold mt-10 mb-4">
+          <h2 className="font-anton text-[#3B62AC] text-2xl  mt-10 mb-4">
             Viziunea noastră
           </h2>
           <p className="text-base leading-7 text-justify">
@@ -118,7 +122,7 @@ export default function DespreNoiPage() {
 
         <section className="bg-white py-12">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-10 text-center">
+            <h2 className="font-anton text-[#3B62AC] text-3xl  mb-10 text-center">
               Valorile Innergy
             </h2>
             <div className="relative border-l-2 border-blue-500 space-y-8">
@@ -129,7 +133,7 @@ export default function DespreNoiPage() {
                   </div>
                   <button
                     onClick={() => toggle(index)}
-                    className="w-full text-left text-xl font-semibold text-black flex items-center justify-between"
+                    className="w-full text-left text-xl  text-black flex items-center justify-between"
                   >
                     {item.title}
                     <span className="text-blue-500 text-2xl ml-2">

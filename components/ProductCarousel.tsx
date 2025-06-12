@@ -109,7 +109,7 @@ export default function ProductCarousel() {
   };
 
   return (
-    <section className="bg-white text-black py-8 px-4">
+    <section className="bg-white text-[#3b62ac] py-8 px-4">
       <div className="max-w-7xl mx-auto bg-gray-100 rounded-xl shadow-md p-8 md:p-12">
         {/* Header */}
         <ProductCarouselHeader instanceRef={instanceRef} />

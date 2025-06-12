@@ -49,17 +49,18 @@ export default function VideoCarousel() {
   const swipeThreshold = 100;
 
   return (
-    <div className="bg-[rgba(239, 239, 239, 0.673)] text-black flex flex-col md:flex-row items-center justify-center gap-12 px-6 mt-[2px] overflow-hidden">
+    <div className="bg-[rgba(239, 239, 239, 0.673)] text-[#3b62ac] flex flex-col md:flex-row items-center justify-center gap-12 px-6 mt-[2px] overflow-hidden">
       {/* LEFT TEXT & CONTROLS */}
       <div className="flex-1 max-w-md text-center md:text-left">
         <h2
-          className={`text-3xl font-bold uppercase mb-4 ${anton.className}`}
-          style={{ fontSize: "40px" }}
+          className={`text-[40px] leading-10 font-bold uppercase mb-4 ${anton.className}`}
         >
           {videos[current].title}
         </h2>
-        <p className={"text-lg mb-[-30px]"}>{videos[current].text}</p>
-        <div className="hidden md:flex justify-center md:justify-start gap-6">
+        <p className={"text-lg text-black mb-[-30px]"}>
+          {videos[current].text}
+        </p>
+        <div className="hidden md:flex justify-center md:justify-start gap-6 mt-10">
           <button
             onClick={prev}
             className="bg-black text-white p-3 rounded-full hover:scale-110 transition"
@@ -116,8 +117,7 @@ export default function VideoCarousel() {
                 {videos[current].type === "iframe" ? (
                   <iframe
                     src={videos[current].src}
-                    className="w-full h-full absolute top-0 left-0"
-                    style={{ border: "none" }}
+                    className="w-full h-full absolute top-0 left-0 border-0"
                     allowFullScreen
                     allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
                   />

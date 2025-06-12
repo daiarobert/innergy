@@ -94,7 +94,7 @@ const JobDetailsPage = () => {
 
       {/* Job Details Section */}
       <div className="max-w-4xl mx-auto px-4  bg-white">
-        <p className="text-lg text-[#3B62ACFF] mb-4">
+        <p className="text-lg text-[#3B62ACFF]  mb-4">
           <span className="font-semibold">Locație:</span> {job.location}
         </p>
 

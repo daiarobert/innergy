@@ -6,7 +6,18 @@
 @import "froala-editor/css/themes/gray.min.css";
 /* @import "froala-editor/css/plugins/image.min.css"; */
 @import "font-awesome/css/font-awesome.css";
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
 
+/* Definește o clasă pentru fontul Anton */
+.font-anton {
+  font-family: "Anton", sans-serif;
+}
+
+/* Definește o clasă pentru fontul Inter */
+.font-inter {
+  font-family: "Inter", sans-serif;
+}
 /* @plugin "daisyui" {
   themes: false;
 }

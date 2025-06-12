@@ -2,14 +2,6 @@
 
 import { CheckCircle, Info, Plus, Minus } from "lucide-react";
 import { useState } from "react";
-import { Anton, Inter } from "next/font/google";
-
-const anton = Anton({ subsets: ["latin"], weight: "400", display: "swap" });
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
-});
 
 const benefits = [
   {
@@ -37,10 +29,7 @@ export default function IntroSection() {
     <section className="bg-white text-black mb-6 mt-12 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
         {/* Titlu */}
-        <h2
-          className={`"text-3xl font-bold text-center mb-12 uppercase" ${anton.className}`}
-          style={{ fontSize: "35px" }}
-        >
+        <h2 className="font-anton text-4xl text-[#3b62ac] text-center mb-12 uppercase">
           BENEFICII CHEIE
         </h2>
 
@@ -52,9 +41,7 @@ export default function IntroSection() {
                 className="mx-auto mb-4 text-[#3B62ACFF]"
                 size={36}
               />
-              <p
-                className={`"text-md font-medium leading-relaxed" ${inter.className}`}
-              >
+              <p className={`"text-md font-medium leading-relaxed"`}>
                 {benefit.text}
               </p>
             </div>
@@ -70,7 +57,7 @@ export default function IntroSection() {
           >
             <div className="flex items-center gap-3">
               <Info className="text-white" size={28} />
-              <h3 className={"text-lg font-semibold text-white"}>Despre noi</h3>
+              <h3 className={"text-lg  text-white"}>Despre noi</h3>
             </div>
             <span className="md:hidden">
               {open ? (
@@ -89,9 +76,7 @@ export default function IntroSection() {
                 : "max-h-0 opacity-0 hidden"
             } md:max-h-none md:opacity-100`}
           >
-            <div
-              className={`"flex flex-col md:flex-row items-start gap-6 ${inter.className}"`}
-            >
+            <div className="flex flex-col md:flex-row items-start gap-6 ">
               <div className="flex-shrink-0 hidden md:block">
                 <Info className="text-[#3B62ACFF]" size={40} />
               </div>
@@ -104,10 +89,7 @@ export default function IntroSection() {
                   a îmbunătăți calitatea vieții celor care se confruntă cu
                   dezechilibre gastrointestinale, metabolice sau imunitare.
                 </p>
-                <a
-                  href="#"
-                  className="text-white font-semibold hover:underline transition"
-                >
+                <a href="#" className="text-white  hover:underline transition">
                   Citește mai mult →
                 </a>
               </div>

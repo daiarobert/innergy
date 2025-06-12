@@ -10,7 +10,7 @@ export default function Navbar() {
 
   return (
     <div
-      className={`fixed top-0 left-0 z-50 w-full px-6 py-4 flex flex-col transition-all duration-300 lg:top-10 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:w-[85%] lg:rounded-2xl ${
+      className={`fixed top-0 left-0 z-50 w-full px-6 py-3 flex flex-col transition-all duration-300 lg:top-10 lg:left-1/2 lg:transform lg:-translate-x-1/2 lg:w-[85%] lg:rounded-2xl ${
         isOpen ? "rounded-b-2xl" : "rounded-b-2xl"
       }`}
       style={{

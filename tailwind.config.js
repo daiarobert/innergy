@@ -4,20 +4,14 @@ export const content = [
   "./components/**/*.{js,ts,jsx,tsx}",
   "./lib/**/*.{ts,tsx}", // optional
 ];
+
 export const theme = {
-  extend: {},
+  extend: {
+    fontFamily: {
+      inter: ["var(--font-inter)", "sans-serif"],
+      anton: ["var(--font-anton)", "sans-serif"],
+    },
+  },
 };
+
 export const plugins = [];
-
-// // DaisyUI configuration
-// export const daisyui = {
-//   themes: false, // Disable all DaisyUI themes
-// };
-
-// // Combine everything into a default export for DaisyUI compatibility
-// export default {
-//   content,
-//   theme,
-//   plugins,
-//   daisyui,
-// };

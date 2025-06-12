@@ -62,10 +62,10 @@ export default function FeaturedArticles() {
     <section className="py-4 px-4 max-w-7xl mt-12 mx-auto">
       {/* Header */}
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-bold text-gray-800">Articole</h2>
+        <h2 className="font-anton text-[35px]  text-[#3b62ac]">ARTICOLE</h2>
         <Link
           href="/articole"
-          className="text-[#3B62AC] hover:underline flex items-center"
+          className=" text-[#3B62AC] hover:underline flex items-center"
         >
           Vezi toate →
         </Link>
@@ -88,7 +88,7 @@ export default function FeaturedArticles() {
             />
             <div className="absolute inset-0  flex items-end p-4">
               <div
-                className="text-white text-lg font-semibold rounded-3xl px-4 py-2"
+                className="font-anton text-white text-[20px] rounded-3xl px-4 py-2"
                 style={{
                   backgroundColor: "#3b62ac6b",
                   backdropFilter: "blur(8px)",

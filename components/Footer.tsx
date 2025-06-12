@@ -21,30 +21,14 @@ export default function Footer() {
         </div>
 
         {/* Linkuri */}
-        <div className="wrapper flex justify-around sm:justify-start md:justify-between text-sm">
+        <div className="wrapper flex justify-around sm:justify-start md:justify-around text-sm">
           <div>
-            <h4 className="text-white font-semibold mb-3">Navigare</h4>
+            <h4 className="text-white font-semibold mb-3">
+              Politică și termeni
+            </h4>
             <ul className="space-y-2 text-white/90">
-              <li>
-                <a href="#" className="hover:underline">
-                  Despre noi
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Produse
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Beneficii
-                </a>
-              </li>
-              <li>
-                <a href="#" className="hover:underline">
-                  Contact
-                </a>
-              </li>
+              <li>Politica de confidentialitate</li>
+              <li>Termeni si conditii</li>
             </ul>
           </div>
 
@@ -53,17 +37,9 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-3">Contact</h4>
             <ul className="space-y-2 text-white/90">
               <li>
-                <Mail className="inline-block w-4 h-4 mr-2" />{" "}
-                contact@innergy.ro
+                <Mail className="inline-block w-4 h-4" /> contact@innergy.ro
               </li>
               <li>București, România</li>
-            </ul>
-            <h4 className="text-white font-semibold mb-3">
-              Politică și termeni
-            </h4>
-            <ul className="space-y-2 text-white/90">
-              <li>Politica de confidentialitate</li>
-              <li>Termeni si conditii</li>
             </ul>
           </div>
         </div>

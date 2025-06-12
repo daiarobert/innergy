@@ -18,7 +18,7 @@ export default async function ArticolePage() {
       />
 
       <section className="max-w-6xl mx-auto px-4 ">
-        <h1 className="text-4xl font-bold mb-10 text-center">
+        <h1 className="font-anton text-[#3b62ac] text-4xl mb-10 text-center">
           Ultimele articole
         </h1>
 
@@ -39,7 +39,9 @@ export default async function ArticolePage() {
               </div>
 
               <div className="p-4">
-                <h2 className="text-lg font-semibold mb-1">{articol.titlu}</h2>
+                <h2 className="text-lg font-anton text-[#3b62ac] mb-1">
+                  {articol.titlu}
+                </h2>
                 <p className="text-sm text-gray-600 mb-2 line-clamp-2">
                   {articol.descriere}
                 </p>
