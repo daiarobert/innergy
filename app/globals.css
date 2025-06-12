@@ -170,3 +170,20 @@ main {
   width: calc(100% / 3); /* Adjust based on perView */
   height: auto;
 }
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide {
+  animation: fadeSlideUp 0.6s ease-out;
+  opacity: 0; /* Asigură-te că începe ascuns */
+  animation-fill-mode: forwards; /* Menține starea finală */
+}

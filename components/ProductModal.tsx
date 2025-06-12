@@ -9,7 +9,7 @@ export default function ProductModal({
 }) {
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-xl shadow-lg max-w-lg w-full p-6">
+      <div className="bg-white rounded-xl shadow-lg max-w-lg w-full max-h-screen overflow-y-auto p-6 m-6">
         {/* Modal Header */}
         <div
           className="rounded-t-xl relative w-full h-80"
