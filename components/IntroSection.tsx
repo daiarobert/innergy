@@ -26,7 +26,7 @@ export default function IntroSection() {
   const [open, setOpen] = useState(false);
 
   return (
-    <section className="bg-white text-black mb-6 mt-12 px-6 md:px-12">
+    <section className=" text-black mb-6 mt-12 px-6 md:px-12">
       <div className="max-w-6xl mx-auto">
         {/* Titlu */}
         <h2 className="font-anton text-4xl text-[#3b62ac] text-center mb-12 uppercase">

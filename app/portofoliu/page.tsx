@@ -76,14 +76,14 @@ export default function ProdusePage() {
         text="produse"
       />
 
-      <main className="min-h-screen bg-white text-black  px-4">
+      <main className=" bg-white text-black  ">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold text-center mb-10">
             Produsele Noastre
           </h1>
 
           {/* Product Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <div className=" px-4 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 gap-4">
             {products.map((product, idx) => (
               <div
                 key={idx}
@@ -107,7 +107,7 @@ export default function ProdusePage() {
         </div>
         <PartnerCarousel />
         <Newsletter />
-        <FeaturedArticles />
+        {/* <FeaturedArticles /> */}
       </main>
 
       {/* Modal */}

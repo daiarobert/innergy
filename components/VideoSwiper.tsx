@@ -49,7 +49,7 @@ export default function VideoCarousel() {
   const swipeThreshold = 100;
 
   return (
-    <div className="bg-[rgba(239, 239, 239, 0.673)] text-[#3b62ac] flex flex-col md:flex-row items-center justify-center gap-12 px-6 mt-[2px] overflow-hidden">
+    <div className=" bg-[rgba(239, 239, 239, 0.673)] text-[#3b62ac] flex flex-col md:flex-row items-center justify-center gap-12 px-6 mt-[2px] overflow-hidden">
       {/* LEFT TEXT & CONTROLS */}
       <div className="flex-1 max-w-md text-center md:text-left">
         <h2

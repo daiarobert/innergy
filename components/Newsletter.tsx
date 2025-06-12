@@ -13,12 +13,12 @@ export default function NewsletterSection() {
   };
 
   return (
-    <section className="flex justify-center items-center py-4 px-4 bg-transparent">
+    <section className="bg-image flex justify-center items-center py-4 px-4 bg-transparent">
       <div className="max-w-xl w-full text-center backdrop-blur-md bg-white/10 rounded-3xl p-8 shadow-lg border border-white/20">
-        <h2 className="text-white text-3xl font-bold mb-4">
+        <h2 className="text-[#2a5d6e] text-3xl font-bold mb-4">
           Abonează-te la Newsletter
         </h2>
-        <p className="text-white/80 mb-6">
+        <p className="text-[#2a5d6e] mb-6">
           Primește ultimele noutăți și oferte direct pe email.
         </p>
         <form

@@ -1,6 +1,7 @@
 import "./globals.css";
 import SessionProviderWrapper from "./providers/SessionProviderWrapper";
 import Navbar from "../components/Navbar";
+import Newsletter from "../components/Newsletter";
 import Footer from "../components/Footer";
 import { Inter, Anton } from "next/font/google";
 
@@ -28,6 +29,7 @@ export default function RootLayout({
         <SessionProviderWrapper>
           <Navbar />
           <main>{children}</main>
+          <Newsletter />
           <Footer />
         </SessionProviderWrapper>
       </body>

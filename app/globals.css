@@ -171,19 +171,19 @@ main {
   height: auto;
 }
 
-@keyframes fadeSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(50px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.bg-image {
+  background-image: url("/spirala.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.bg-image-floare {
+  background-image: url("/bg.svg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.animate-fade-slide {
-  animation: fadeSlideUp 0.6s ease-out;
-  opacity: 0; /* Asigură-te că începe ascuns */
-  animation-fill-mode: forwards; /* Menține starea finală */
+.text-shadow {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }

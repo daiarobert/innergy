@@ -30,8 +30,6 @@ export default function LandingPage() {
       <FeaturedArticles />
 
       <Reviews />
-
-      <Newsletter />
     </>
   );
 }
