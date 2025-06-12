@@ -29,7 +29,7 @@ export default function LandingPage() {
           scrollTrigger: {
             trigger: section,
             start: "top 90%", // Declanșează animația când secțiunea este 25% vizibilă
-            end: "top 70%", // Finalizează animația când secțiunea este 50% vizibilă
+
             toggleActions: "play none none reverse", // Controlează animația
           },
         }
