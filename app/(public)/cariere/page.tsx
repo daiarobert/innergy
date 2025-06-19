@@ -35,7 +35,7 @@ export default function CareersPage() {
         }}
         text="Hai in echipa!"
       />
-      <div className="max-w-6xl mx-auto text-center min-h-screen bg-white md:px-12">
+      <div className="max-w-6xl mx-auto text-center bg-white md:px-12">
         <h1 className="font-anton text-4xl text-[#3B62ACFF] mb-6">
           Joburi Disponibile
         </h1>

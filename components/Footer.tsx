@@ -26,24 +26,29 @@ export default function Footer() {
             <h4 className="text-white font-semibold mb-3">
               Politică și termeni
             </h4>
-            <ul className="space-y-2 text-white/90">
+            <ul className="space-y-2 text-white/90 cursor-pointer">
               <li>Politica de confidentialitate</li>
-              <li>Termeni si conditii</li>
+              <li >Termeni si conditii</li>
             </ul>
           </div>
 
           {/* Contact */}
           <div>
-            <h4 className="text-white font-semibold mb-3">Contact</h4>
-            <ul className="space-y-2 text-white/90">
+            <h4 className="text-white font-semibold mb-3"></h4>
+            <ul className="space-y-2 text-white/90 cursor-pointer">
               <li>
-                <Mail className="inline-block w-4 h-4" /> contact@innergy.ro
+                <Mail className="inline-block w-4 h-4 " /> contact@innergy.ro
               </li>
               <li>București, România</li>
             </ul>
           </div>
         </div>
+        
       </div>
+      <div className="flex justify-center">
+          <img src="https://www.innergy.ro/wp-content/uploads/2023/01/sal.png" alt="anpc - solutionare alternativa a litigiilor - detalii" className="h-11 cursor-pointer"/>
+        <img src="https://www.innergy.ro/wp-content/uploads/2023/01/sol.png" alt="anpc" className="h-11 cursor-pointer"/>
+        </div>
       <div className="flex justify-center items-center gap-4 mt-2">
         <a
           href="https://facebook.com"

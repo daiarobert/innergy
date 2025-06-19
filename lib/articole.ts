@@ -47,7 +47,7 @@ Directiile de cercetare vizeaza identificarea dezechilibrelor microbiene care de
 
 O patologie careia i se acorda o atentie deosebita este obezitatea, denumita si ” boala secolului”, care afecteaza un numar din ce in ce mai mare de indivizi la nivel mondial si este insotita de complicatii: boli cardiace, diabet, boli metabolice, cancer etc. Tot mai multe studii evidentiaza ca microbiomul pacientului obez se afla in dezechilibru, speciile patogene dominand structura microbiana. Chimistul Dusko Ehrlich afirma ca, in urma studiilor, echipa de cercetare poate sa diagnosticheze cu o acuratete de 80-85% obezitatea, analizand bacteriile intestinale. Pe baza concluziilor studiului, cercetatorii preconizeaza ca, in viitor, medicii vor avea posibilitatea sa abordeze diferite afectiuni ale tractului gastro-intestinal prin manipularea microflorei intestinale. Cercetarile vor aduce din ce in ce mai multe dovezi in acest sens, dar in prezent preocuparea fiecarui individ poate fi aceea de a identifica o solutie eficienta pentru echilibrarea microflorei intestinale.
 `,
-      imagine: "/animal-allergy.jpg",
+      imagine: "https://www.nutrific.ro/blog/wp-content/uploads/2023/09/probioticele.png",
       data: "2025-05-15",
       autor: "Mihai Iliescu",
     },
@@ -56,7 +56,7 @@ O patologie careia i se acorda o atentie deosebita este obezitatea, denumita si 
       titlu: "Simbiotice: combinația ideală pentru un sistem imunitar puternic",
       descriere:
         "Combinația de probiotice și prebiotice poate aduce beneficii duble. Descoperă cum funcționează și cui sunt recomandate.",
-      imagine: "/animal-allergy.jpg",
+      imagine: "https://www.drmax.ro/_i/1811829167.webp?path=https%3A%2F%2Fbackend.drmax.ro%2Fmedia%2Famasty%2Fblog%2FCancer_de_colon.jpg&format=webp",
       data: "2025-05-05",
       autor: "Dr. Elena Mureșan",
     },
@@ -65,7 +65,7 @@ O patologie careia i se acorda o atentie deosebita este obezitatea, denumita si 
       titlu: "Cum afectează stresul flora intestinală",
       descriere:
         "Stresul cronic are un impact major asupra echilibrului microbiomului intestinal. Învață cum să te protejezi.",
-      imagine: "/animal-allergy.jpg",
+      imagine: "https://dr-olaru.ro/wp-content/uploads/2018/01/dieta-fibre-alimentare-1024x642.jpg",
       data: "2025-04-20",
       autor: "Ioana Dinu",
     },

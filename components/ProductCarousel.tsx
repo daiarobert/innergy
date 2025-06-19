@@ -115,7 +115,7 @@ export default function ProductCarousel() {
         <ProductCarouselHeader instanceRef={instanceRef} />
 
         {/* Carousel */}
-        <div className="relative">
+        <div className="relative ">
           <div ref={sliderRef} className="keen-slider">
             {products.map((product, i) => (
               <ProductSlide

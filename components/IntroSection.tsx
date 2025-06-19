@@ -57,7 +57,7 @@ export default function IntroSection() {
           >
             <div className="flex items-center gap-3">
               <Info className="text-white" size={28} />
-              <h3 className={"text-lg  text-white"}>Despre noi</h3>
+              <h3 className={"text-lg  text-white cursor-pointer"}>Despre noi</h3>
             </div>
             <span className="md:hidden">
               {open ? (

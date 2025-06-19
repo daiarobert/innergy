@@ -17,7 +17,7 @@ export default async function ArticolePage() {
         text="Articole"
       />
 
-      <section className="max-w-6xl mx-auto px-4 ">
+      <section className="max-w-6xl mx-auto px-4 mb-12">
         <h1 className="font-anton text-[#3b62ac] text-4xl mb-10 text-center">
           Ultimele articole
         </h1>

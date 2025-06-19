@@ -13,41 +13,50 @@ const logos = [
 
 export default function PartnerCarousel() {
   return (
-    <div className="w-full flex justify-center my-8">
-      <div className="relative max-w-[1100px] w-full overflow-hidden rounded-xl shadow-lg backdrop-blur-md bg-[#005eb1]/30">
-        <div className="flex animate-scroll whitespace-nowrap">
-          {/* Logos */}
-          {[...logos, ...logos].map((logo, i) => (
-            <div
-              key={i}
-              className="flex items-center justify-center px-6 py-4 min-w-[150px]"
-            >
-              <Image
-                src={logo}
-                alt={`Partner ${i + 1}`}
-                width={150}
-                height={75}
-                style={{ objectFit: "contain" }}
-                className="max-h-[60px]"
-                loading="lazy"
-              />
-            </div>
-          ))}
+    <div className="w-full flex justify-center my-10 overflow-hidden relative">
+      <div className="max-w-[1100px] w-full bg-[#005eb1]/30 backdrop-blur-md rounded-xl shadow-lg overflow-hidden relative">
+        <div className="marquee">
+          <div className="track">
+            {[...logos, ...logos].map((logo, i) => (
+              <div
+                key={i}
+                className="flex items-center justify-center min-w-[150px] px-6 py-4"
+              >
+                <Image
+                  src={logo}
+                  alt={`Partner ${i + 1}`}
+                  width={150}
+                  height={75}
+                  style={{ objectFit: "contain" }}
+                  className="max-h-[60px]"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
       <style jsx>{`
-        @keyframes scroll {
+        .marquee {
+          overflow: hidden;
+          position: relative;
+        }
+
+        .track {
+          display: flex;
+          width: fit-content;
+          animation: scroll-left linear infinite;
+          animation-duration: 15s; /* adjust this to change speed */
+        }
+
+        @keyframes scroll-left {
           0% {
-            transform: translateX(0%);
+            transform: translateX(0);
           }
           100% {
             transform: translateX(-50%);
           }
-        }
-
-        .animate-scroll {
-          animation: scroll 30s linear infinite;
         }
       `}</style>
     </div>

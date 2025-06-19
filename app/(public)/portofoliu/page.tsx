@@ -71,7 +71,7 @@ export default function ProdusePage() {
         height="60vh"
         media={{
           type: "image",
-          src: "/bifido-baby-hero.png",
+          src: "/hero-produse-2.png",
         }}
         text="produse"
       />

@@ -26,7 +26,7 @@ export default function ProductSlide({
 
   return (
     <div
-      className="keen-slider__slide rounded-xl text-center relative group"
+      className="keen-slider__slide cursor-pointer rounded-xl text-center relative hover:scale-105"
       style={{
         backgroundColor: product.colorBg,
         boxShadow: `0 4px 14px ${product.colorBg}`,
