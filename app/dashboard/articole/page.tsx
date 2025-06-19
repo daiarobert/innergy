@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import DashboardTable from "@/components/DashboardTable";
+import Loader from "@/components/Loader";
 
 export default function ArticolePage() {
   const [articles, setArticles] = useState<any[]>([]);
@@ -33,7 +34,7 @@ export default function ArticolePage() {
     fetchArticles();
   }, []);
 
-  if (loading) return <p className="p-4">Loading articles...</p>;
+  if (loading) return <p className="p-4"><Loader/></p>;
 
   return (
     <DashboardTable

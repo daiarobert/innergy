@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import ProductTable from "./ProductTable";
+import Loader from "@/components/Loader";
 
 export default function ProdusePage() {
   const [products, setProducts] = useState<any[]>([]);
@@ -34,7 +35,7 @@ export default function ProdusePage() {
     fetchProducts();
   }, []);
 
-  if (loading) return <p className="p-4">Loading products...</p>;
+  if (loading) return <p className="p-4"><Loader/></p>;
 
   return <ProductTable products={products} />;
 }
