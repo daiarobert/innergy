@@ -97,7 +97,7 @@ export default function Navbar() {
         </Link>
 
         <Link href="/medici-farmacisti">
-          <button className="mt-4 flex items-center bg-[#3b62ac] text-white font-semibold px-4 py-2 rounded-full shadow hover:scale-105 transition">
+          <button onClick={() => setIsOpen(!isOpen)} className="mt-4 flex items-center bg-[#3b62ac] text-white font-semibold px-4 py-2 rounded-full shadow hover:scale-105 transition">
             Medici/Farmacisti
             <span className="ml-2 bg-red-600 text-white rounded-full p-1">
               <svg
