@@ -10,28 +10,28 @@ const featured = [
     id: "1",
     title: "Alergii la praf și păr de animale",
     image: "/animal-allergy.jpg",
-    href: "/articole/energie-interioara",
+    href: "/articole/1",
   },
   {
     id: "2",
     title: "Probiotice și sănătatea intestinului",
     image:
       "https://www.nutrific.ro/blog/wp-content/uploads/2023/09/probioticele.png",
-    href: "/articole/echilibru-mental",
+    href: "/articole/2",
   },
   {
     id: "3",
     title: "7 lucruri esențiale despre sănătatea colonului",
     image:
       "https://www.drmax.ro/_i/1811829167.webp?path=https%3A%2F%2Fbackend.drmax.ro%2Fmedia%2Famasty%2Fblog%2FCancer_de_colon.jpg&format=webp",
-    href: "/articole/wellness-definitie",
+    href: "/articole/3",
   },
   {
     id: "4",
     title: "Dieta săracă în fibre: risc pe termen lung",
     image:
       "https://dr-olaru.ro/wp-content/uploads/2018/01/dieta-fibre-alimentare-1024x642.jpg",
-    href: "/articole/energie-zilnica",
+    href: "/articole/4",
   },
 ];
 
