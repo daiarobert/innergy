@@ -21,6 +21,14 @@ A modern fullstack project featuring a marketing landing page and a protected da
 - Form validation and rich text inputs (ShadCN)
 - MongoDB integration for data persistence
 
+![59cd2d53-4c93-48ff-bd9f-b628e2cf9c63](https://github.com/user-attachments/assets/517a7537-e96b-4406-96dd-aa615706bc84)
+
+![c26d9d2f-f411-48a5-9385-fc885d0348c4](https://github.com/user-attachments/assets/99b8b0d9-09e2-4ff2-ba78-9562b06bc9bb)
+
+
+
+
+
 ### 🔜 Coming Soon
 
 - Public fetch endpoints to display articles & products on the homepage
